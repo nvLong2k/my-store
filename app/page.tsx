@@ -1,65 +1,63 @@
+// app/page.tsx
 import Image from "next/image";
+import { products } from "@/src/mock/products";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="max-w-5xl mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+      {products.map((product) => (
+        <div
+          key={product.id}
+          className="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 transition-colors duration-200 cursor-pointer"
+        >
+          {/* Image */}
+          <div className="relative aspect-square bg-[#f5f4f0]">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src={product.image}
+              alt={product.name}
+              fill
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            {/* Badges */}
+            <div className="absolute top-2 left-2 flex flex-col gap-1">
+              {product.isNew && (
+                <span className="bg-green-500 text-white text-[11px] font-medium px-2 py-0.5 rounded-sm tracking-wide">
+                  NEW
+                </span>
+              )}
+              {product.origin && (
+                <span className="bg-red-600 text-white text-[11px] font-medium px-2 py-0.5 rounded-sm">
+                  {product.origin}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Info */}
+          <div className="p-3">
+            <h3 className="text-[13px] text-gray-800 leading-snug mb-2.5 line-clamp-2 min-h-[38px]">
+              {product.name}
+            </h3>
+
+            {/* Price row */}
+            <div className="flex items-center gap-2 flex-wrap mb-1.5">
+              <span className="text-[20px] font-semibold text-[#e0781e]">
+                ${product.price.toFixed(2)}
+              </span>
+              <span className="text-[13px] text-gray-400 line-through">
+                ${product.originalPrice.toFixed(2)}
+              </span>
+              <span className="text-[11px] font-medium text-[#bf5e0a] bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded">
+                -{product.discount}%
+              </span>
+            </div>
+
+            <p className="text-[12px] text-gray-400">
+              Avg. production time {product.avgProductionDays} days
+            </p>
+          </div>
         </div>
-      </main>
+      ))}
     </div>
   );
 }
