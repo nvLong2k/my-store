@@ -5,7 +5,7 @@ import { products } from "@/src/mock/products";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+    <div className="max-w-5xl mx-auto px-4 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {products.map((product) => (
         <Link
           key={product.id}
@@ -13,12 +13,12 @@ export default function Home() {
           className="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 transition-colors duration-200"
         >
           {/* Image */}
-          <div className="relative aspect-square bg-[#f5f4f0]">
+          <div className="relative aspect-square bg-[#f5f4f0] overflow-hidden">
             <Image
-              src={product.image}
+              src={product.images[0]}
               alt={product.name}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
 
             <div className="absolute top-2 left-2 flex flex-col gap-1">
