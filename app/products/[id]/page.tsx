@@ -153,7 +153,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             <div className="px-4 py-2.5 flex items-baseline gap-3 flex-wrap">
                                 <span className="text-[13px] text-gray-500">Price:</span>
                                 <span className="text-[24px] md:text-[26px] font-semibold text-[#e0781e]">
-                                    ${product.price.toFixed(2)}
+                                    ${(product.price - 1).toFixed(2)}
                                 </span>
                                 <span className="text-[14px] text-gray-400 line-through">
                                     ${product.originalPrice.toFixed(2)}

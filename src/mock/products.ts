@@ -88,7 +88,7 @@ export const products: Product[] = [
             "Hand wash recommended.",
         ],
         shipping: {
-            price: "$7.78 ~ $15.44",
+            price: "$5.78 ~ $13.44",
             description: "Shipping to the US only"
         },
     },
@@ -126,7 +126,7 @@ export const products: Product[] = [
             "The picture is for reference only. Slight differences between the actual product and the renderings caused by objective production factors, including but not limited to size, position and color difference, are regarded as normal phenomena."
         ],
         shipping: {
-            price: "$7.78 ~ $15.44",
+            price: "$5.78 ~ $13.44",
             description: "Shipping to the US only"
         },
     },
@@ -165,7 +165,7 @@ export const products: Product[] = [
             "Product images are for reference only. Slight differences between the actual item and the picture in size, position, color shade and other aspects caused by production factors are considered normal."
         ],
         shipping: {
-            price: "$7.78 ~ $15.44",
+            price: "$5.78 ~ $13.44",
             description: "Shipping to the US only"
         },
     },
@@ -190,7 +190,7 @@ export const products: Product[] = [
             weight: "410 g",
         },
         shipping: {
-            price: "$12.62",
+            price: "$10.62",
             description: "Global shipping (US rates shown by default)"
         },
         bulkPricing: [
@@ -242,7 +242,7 @@ export const products: Product[] = [
             "Size data measured when fully flattened. A 1-3cm measurement error is normal due to different measuring methods",
             "All pictures are for reference only. Slight differences between actual products and renderings including size, position and color deviation caused by objective production factors are within the normal range",],
         shipping: {
-            price: "$5.74~$8.78",
+            price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
     },
@@ -279,7 +279,7 @@ export const products: Product[] = [
             "Size data measured when fully flattened. A 1-3cm measurement error is normal due to different measuring methods",
             "All pictures are for reference only. Slight differences between actual products and renderings including size, position and color deviation caused by objective production factors are within the normal range",],
         shipping: {
-            price: "$5.74~$8.78",
+            price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
     },
@@ -320,7 +320,7 @@ export const products: Product[] = [
             "Friendly Reminder： The product images shown are for illustrative purposes only. Due to objective factors such as production batches, equipment parameters, and lighting conditions during photography, the actual product may exhibit slight differences compared to the images—including, but not limited to, variations in size, positioning, and color tone. Such variations are considered normal phenomena."
         ],
         shipping: {
-            price: "$5.29~$7.81",
+            price: "$3.29~$5.81",
             description: "Shipping to the US only"
         },
     },
@@ -361,7 +361,7 @@ export const products: Product[] = [
             "Special Note: Size deviation of 1-2cm due to different measuring methods is regarded as normal situation.",
         ],
         shipping: {
-            price: "$5.33~$8.88",
+            price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
     },
@@ -399,7 +399,7 @@ export const products: Product[] = [
             "Warm Reminder： The picture display effect is for reference only. Affected by objective factors such as production batches, equipment parameters, shooting light, etc., there may be slight differences between the actual object and the picture, including but not limited to size, position, color difference, etc. The above is a normal phenomenon.",
         ],
         shipping: {
-            price: "$5.33~$8.88",
+            price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
     },
@@ -444,7 +444,7 @@ export const products: Product[] = [
             "Warm Reminder： The picture display effect is for reference only. Affected by objective factors such as production batches, equipment parameters, shooting light, etc., there may be slight differences between the actual object and the picture, including but not limited to size, position, color difference, etc. The above is a normal phenomenon.",
         ],
         shipping: {
-            price: "$8.32",
+            price: "$6.32",
             description: "Global shipping (US rates shown by default)"
         },
         bulkPricing: [
@@ -500,7 +500,7 @@ export const products: Product[] = [
             "Warm Tips: The pictures are only for display reference. Slight differences including size, position and color difference between the actual product and pictures caused by production batches, equipment parameters, shooting light and other objective factors are all normal situations."
         ],
         shipping: {
-            price: "$5.33~$8.88",
+            price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
     },
@@ -551,7 +551,7 @@ export const products: Product[] = [
             "Friendly Reminder: The image shown is for reference only. Due to objective factors such as production batch, fabric batch, and shooting light, there may be slight differences between the actual product and the image, including but not limited to color depth and fabric texture. This is a normal phenomenon."
         ],
         shipping: {
-            price: "$5.33~$8.88",
+            price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
     },
@@ -595,7 +595,7 @@ export const products: Product[] = [
             "Special Note：A size deviation within 1-3cm is normal due to different measurement methods.",
         ],
         shipping: {
-            price: "$5.33~$8.88",
+            price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
     },
@@ -634,7 +634,7 @@ export const products: Product[] = [
             "Due to the special firing process and pure handmade production, minor surface imperfections may occur under high temperature firing, which shall not be regarded as valid grounds for after-sales claims"
         ],
         shipping: {
-            price: "$6.01~$10.20",
+            price: "$4.01~$8.20",
             description: "Shipping to the US only"
         },
     },
@@ -675,7 +675,7 @@ export const products: Product[] = [
             "Friendly Reminder：The image shown is for reference only. Certain objective factors during the production process may cause slight differences between the actual product and the image, including but not limited to the size, position, color difference, and missing stitching. These are considered normal.",
         ],
         shipping: {
-            price: "$16.25",
+            price: "$14.25",
             description: "Global shipping (US rates shown by default)"
         },
         bulkPricing: [
@@ -714,7 +714,7 @@ export const products: Product[] = [
             "【Note】This product is made on demand, One piece can also be shipped, multiple shipping routes are provided, and the cost varies depending on time efficiency.",
         ],
         shipping: {
-            price: "$13.22",
+            price: "$11.22",
             description: "Global shipping (US rates shown by default)"
         },
         bulkPricing: [

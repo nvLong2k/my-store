@@ -43,7 +43,7 @@ export default function Products() {
 
                         <div className="flex items-center gap-2 flex-wrap mb-1.5">
                             <span className="text-[20px] font-semibold text-[#e0781e]">
-                                ${product.price.toFixed(2)}
+                                ${(product.price - 1).toFixed(2)}
                             </span>
 
                             <span className="text-[13px] text-gray-400 line-through">
@@ -51,7 +51,7 @@ export default function Products() {
                             </span>
 
                             <span className="text-[11px] font-medium text-[#bf5e0a] bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded">
-                                -{product.discount}%
+                                -{((1 - (product.price - 1) / product.originalPrice) * 100).toFixed(2)}%
                             </span>
                         </div>
 
