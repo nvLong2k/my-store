@@ -6,7 +6,7 @@ export type ColorOption = {
 export type BulkTier = {
     minQty: number;
     maxQty?: number;
-    price: number;
+    price?: number;
     realPrice?: number;
 };
 
@@ -721,6 +721,238 @@ export const products: Product[] = [
             { minQty: 1, maxQty: 9, price: 2.08, realPrice: 2.61 },
             { minQty: 10, maxQty: 49, price: 1.97, realPrice: 2.47 },
             { minQty: 50, price: 1.87, realPrice: 2.34 },
+        ],
+    },
+    {
+        id: 17,
+        name: "Round Car Air Freshener 8×8cm | Paper",
+        price: 1.36,
+        originalPrice: 1.70,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/YYP4KX_6_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        colors: [
+            { label: "White", hex: "white" },
+        ],
+        sizes: [
+            { label: "1PC", diameter: "3.1inch/8cm" },
+            { label: "2PCS", diameter: "3.1inch/8cm" },
+            { label: "4PCS", diameter: "3.1inch/8cm" },
+            { label: "6PCS", diameter: "3.1inch/8cm" },
+            { label: "10PCS", diameter: "3.1inch/8cm" },
+            { label: "24PCS", diameter: "3.1inch/8cm" },
+            { label: "40PCS", diameter: "3.1inch/8cm" },
+            { label: "100PCS", diameter: "3.1inch/8cm" },
+        ],
+        meta: {
+            material: "Paper",
+            weight: "36 g",
+        },
+        description: [
+            "Recommended Image Pixels: 2000×2000px or above",
+            "Design Description: Full-width high-definition printing with exquisite and delicate patterns, combining ornamental and practical value. The printed design blends perfectly with fragrance for both attractive appearance and premium texture.",
+            "Material Description: Made of high-quality water-absorbent cotton and linen blended fabric. Breathable, skin-friendly and highly absorbent, it locks in fragrance effectively. The material is soft, durable, odorless, free of harmful substances, safe and eco-friendly.",
+            "Product Performance",
+            "Long-lasting Fragrance: Premium fabric infused with high-concentration aromatherapy essential oil delivers mild, non-irritating scent that lasts 30–60 days, varying slightly according to environmental ventilation.",
+            "Stylish Appearance: High-definition printing restores fine pattern details with vivid, fade-resistant colors. Multiple styles available with minimalist elegant shape, serving both as aromatherapy and decorative ornament.",
+            "Easy & Practical: Comes with built-in hanging cord or pre-punched hanging hole with reinforced design to prevent falling off. Ready to hang without extra installation, lightweight and portable for position adjustment anytime.",
+            "Safe & Mild: Made with natural plant essential oils, no industrial essence, formaldehyde or harmful residues. Safe for adults, children and pets with mild non-irritating scent.",
+            "Applicable Scenarios: Ideal for car interior, wardrobe, shoe cabinet, bedroom, study, bathroom, office, bag pendant and gift giving. It eliminates odors, freshens air and decorates surroundings to create a cozy and comfortable atmosphere instantly.",
+            "Instructions for Use: Open the individual package and hang it anywhere needing fresh fragrance. When the scent fades, add a small amount of the same flavor essential oil to refresh and extend service life. Avoid prolonged direct sunlight.",
+            "Special Note: A size deviation within 1–3mm is considered normal due to different measurement methods.",
+            "Warm Reminder: The pictures are for reference only. Slight differences in size, pattern position, color shade and fragrance concentration may exist between the actual product and the pictures due to production batches, equipment parameters and shooting light, which are regarded as normal. Perception of fragrance varies from person to person due to individual sense of smell, please understand."
+        ],
+        shipping: {
+            price: "$2.87",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, price: 1.36, realPrice: 1.70 },
+            { minQty: 10, maxQty: 49, price: 1.31, realPrice: 1.64 },
+            { minQty: 50, price: 1.24, realPrice: 1.55 },
+        ],
+    },
+    {
+        id: 18,
+        name: "20oz Insulated Cup | Stainless Steel (Made in USA)",
+        price: 6.79,
+        originalPrice: 8.49,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/LPYSFD_6_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "White", hex: "white" },
+        ],
+        sizes: [
+            { label: "One Size", width: "2.56inch/6.5cm", height: "7.87inch/20cm" },
+        ],
+        meta: {
+            material: "Stainless steel 304",
+            weight: "310 g",
+        },
+        description: [
+            "Product shipping location:2503 Strozier Ave,south El Monte,CA,91733",
+            "Suggested Image Pixels：2681x2421px",
+            "Design Description：Single-sided printing",
+            "Material Description：304 Stainless Steel",
+            "Product Performance：Made with high-quality, non-toxic stainless steel. Safe, oxidation-resistant, and odorless for worry-free use.",
+            "Utilizes double-layer vacuum insulation technology to keep drinks warm and fresh, resistant to both hot and cold temperatures and odorless.",
+            "Equipped with a leak-proof lid to effectively prevent beverage spills and keep the vehicle interior clean and tidy.",
+            "Applicable Scenarios：Suitable not only for hot drinks but also for cold drinks, tea, juice, etc., meeting different taste needs.",
+            "Washing Instructions：Removable and washable design for easy cleaning and hygiene.",
+            "Special Notes：Measurements were taken flat. Due to different measurement methods, an error of 1-2cm is normal.",
+            "Friendly Reminder：The image shown is for reference only. Due to objective factors such as production batch, equipment parameters, and shooting light, there may be slight differences between the actual product and the image, including but not limited to size, position, and color difference. These are normal phenomena."
+        ],
+        shipping: {
+            price: "$3.74~$6.78",
+            description: "Global shipping (US rates shown by default)"
+        },
+    },
+    {
+        id: 19,
+        name: "Single-Sided Printed Stained Glass Suncatcher（Flat Surface） | Glass (Made in USA）",
+        price: 4.66,
+        originalPrice: 5.83,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/H79S6Z_5_1_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "Black", hex: "black" },
+        ],
+        sizes: [
+            { label: "9cm", diameter: "3.5in/9cm" },
+            { label: "16cm", diameter: "6.3in/16cm" },
+            { label: "20cm", diameter: "7.8in/20cm" },
+            { label: "25cm", diameter: "9.8in/25cm" },
+            { label: "30cm", diameter: "11.8in/30cm" },
+        ],
+        meta: {
+            material: "Glass",
+            weight: "90 g",
+        },
+        description: [
+            "Product shipping location: 16515 Hedgecroft Dr Ste, Houston, TX 77060",
+            "Suggested image resolution: 1500×1500px",
+            "Design Description: Single-sided printing (The viewing side is the flat side)",
+            "Material Description: Selected high-transparency soda-lime glass, pure in texture and with excellent light transmission.",
+            "Product Performance: Made with a high-temperature firing process, sturdy and durable, not easily worn. The ornament is lightweight and portable, paired with an exquisite metal chain for stable hanging. The unique painted design, under sunlight or lamplight, creates a dreamy artistic atmosphere with interplay of light and shadow, adding romance and warmth to the space.",
+            "Applicable Scenarios: Can be used as home decoration, hung in front of windows, entryways, and bedrooms to create a personalized space; also suitable for holiday decorations, decorating Christmas trees and party venues; can also be given as a gift for weddings, birthdays, anniversaries, etc., to convey sentiments; also supports corporate customization and event customization for brand promotion or event commemoration.",
+            "Washing Instructions: It is recommended to gently wipe clean with a soft damp cloth, avoiding the use of abrasive cleaning tools to scratch the surface. Do not soak, and do not use corrosive cleaning agents to prevent damage to the glass and the pattern.",
+            "Special Note: Due to the nature of the hand-painting and firing process, slight variations in pattern details and color intensity may exist in each pendant. Size errors within 0.5–1cm are considered normal; these unique differences are precisely what give it its artistic charm.",
+            "Friendly Reminder: The image shown is for reference only. Due to factors such as production batches, equipment parameters, and lighting conditions, slight differences may exist between the actual product and the image, including but not limited to size, position, and color variations. These are considered normal."
+        ],
+        shipping: {
+            price: "$3.29~$5.81",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 20,
+        name: "iPhone 17 Series Silicone Cases | Silicone",
+        price: 2.40,
+        originalPrice: 3.00,
+        discount: 20,
+        avgProductionDays: 3,
+        images: ["/images/7ZS783_5_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "Black", hex: "black" },
+        ],
+        sizes: [
+            { label: "iPhone 17", 长: "6.02in/15.3cm", 宽: "3.03in/7.7cm", 厚度: "0.43in/1.1cm" },
+            { label: "iPhone 17Air", 长: "6.26in/15.9cm", 宽: "3.11in/7.9cm", 厚度: "0.35in/0.9cm" },
+            { label: "iPhone 17Pro", 长: "6in/15.2cm", 宽: "3in/7.6cm", 厚度: "0.47in/1.2cm" },
+            { label: "iPhone 17Pro Max", 长: "6.57in/16.7cm", 宽: "3.22in/8.2cm", 厚度: "0.47in/1.2cm" },
+        ],
+        meta: {
+            material: "Silica gel",
+            weight: "63 g",
+        },
+        description: [
+            "Recommended Design Dimensions:",
+            "iPhone 17: 1437 × 2972 px",
+            "iPhone 17 Air: 1506 × 3110 px",
+            "iPhone 17 Pro: 1457 × 2982 px",
+            "iPhone 17 Pro Max: 1575 × 3228 px",
+            "Material Description:",
+            "Crafted from high-quality silicone material, this case is flexible and elastic, offering an exceptional combination of impact resistance and durability.",
+            "[Product Features]",
+            "Robust Drop Protection & Comprehensive Defense: Leveraging the superior cushioning properties of silicone, the case effectively disperses impact forces resulting from accidental drops or collisions. It provides reliable protection for the corners, body, and screen, delivering all-around protection for the iPhone 17 series during everyday use.",
+            "Precise Fit & Seamless Operation: Custom-molded to match the exact dimensions of the iPhone 17 series, the case features accurately aligned cutouts and a snug fit that prevents looseness or shifting. Independent button designs preserve the tactile feel and responsiveness of the original device buttons.",
+            "Stain-Resistant & Easy to Clean: The surface is specially treated to resist fingerprints, sweat, and everyday stains. For regular maintenance, simply wipe clean with a soft damp cloth. The case maintains its shape and appearance even after repeated installation and long-term use.",
+            "Slim & Portable Design: Featuring a lightweight and ultra-slim profile, the case provides dependable protection without adding unnecessary bulk. Its minimalist transparent appearance complements a wide range of personal styles and daily scenarios.",
+            "Applicable Scenarios:",
+            "Whether for daily commuting, relaxing at home, working or studying in the office, or for outdoor activities and social gatherings, this product provides reliable protection for the iPhone 17 series. It allows for the creation of a unique, personalized look and is also ideal for corporate customization—such as engraving a brand logo—making it a perfect gift for clients or employees. Furthermore, during daily storage and transport, it effectively prevents scratches and stains on the device body, making it the premier accessory choice for iPhone 17 series users seeking everyday phone protection.",
+            "Exquisite Design：",
+            "For daily use, it is recommended to avoid contact with sharp, hard objects or corrosive liquids to prevent scratching or damaging the case. To clean, gently wipe with a soft, damp cloth; do not soak for extended periods. Avoid using hot water or strong alkaline cleaning agents, as these may compromise the material's integrity and the case's transparent appearance.",
+            "Special Notes:",
+            "Due to variations in measurement methods, a size discrepancy of up to 0.5 cm is considered normal and does not affect the product's proper fit or compatibility with the iPhone 17 series.",
+            "The product images displayed here are for illustrative purposes only. During the manufacturing process, certain objective factors (such as lighting conditions, production batches, material cutting variations, etc.) may result in slight discrepancies between the actual product and the visual renderings. These discrepancies—including, but not limited to, differences in transparency, edge curvature, or minor deviations in port alignment—are considered normal occurrences."
+        ],
+        shipping: {
+            price: "$3.44",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, price: 2.40, realPrice: 3.00 },
+            { minQty: 10, maxQty: 49, price: 2.30, realPrice: 2.88 },
+            { minQty: 50, price: 2.13, realPrice: 2.78 },
+        ],
+    },
+    {
+        id: 21,
+        name: "iPhone 17 Pro Max Transparent Phone Case | TPU",
+        price: 2.36,
+        originalPrice: 3.29,
+        discount: 20,
+        avgProductionDays: 3,
+        images: ["/images/FVDAYX_20_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "d9faf6", hex: "#d9faf6" },
+        ],
+        sizes: [
+            { label: "iPhone 17Pro Max", long: "6.57in/16.7cm", width: "3.22in/8.2cm", thickness: "0.47in/1.2cm" },
+        ],
+        meta: {
+            material: "TPU",
+            weight: "72 g",
+        },
+        description: [
+            "Material Description:",
+            "Made of high-quality TPU material, which is flexible and resilient, offering excellent impact and abrasion resistance. Its pure, transparent texture perfectly reflects the natural color of the iPhone 17 series and exhibits excellent anti-yellowing properties, maintaining its translucent appearance even after long-term use.",
+            "Product Performance:",
+            "Strong drop protection, comprehensive protection: Leveraging the excellent cushioning properties of TPU, it effectively disperses the impact of accidental drops and collisions, effectively resisting damage to the edges, body, and screen. This provides comprehensive drop protection for the iPhone 17 series, reducing the risk of damage during daily use.",
+            "Precise fit, comfortable operation: Precisely molded to the dimensions of the iPhone 17 series, with perfectly aligned holes, the case fits snugly and prevents shifting. The independent button design replicates the original feel of the device, offering responsive control comparable to the original, with one-touch operation for a smooth user experience.",
+            "Stain-resistant and easy to clean, durable and long-lasting: The specially treated surface resists fingerprints, sweat, and everyday stains. Simply wipe with a soft cloth after daily use to quickly restore cleanliness. It remains durable even after repeated disassembly and use, and is scratch-resistant and abrasion-resistant, ensuring it remains in good condition over time.",
+            "Lightweight and portable, versatile and practical: The ultra-thin design provides strong protection without adding excessive thickness or weight to your phone, maintaining the iPhone's inherent slim feel. It slips easily into pockets and backpacks for easy portability. The transparent exterior offers a simple and elegant look that complements any style, perfect for daily commutes or casual outings.",
+            "Useful Scenarios:",
+            "Whether commuting, relaxing at home, studying, or enjoying the outdoors, this case provides reliable protection for your iPhone 17 series. Create a personalized look, and it's also suitable for customizing with your company's logo or giving as a gift to clients or employees. Furthermore, it effectively protects the phone from scratches and stains during storage and on-the-go.",
+            "Exquisite Design:",
+            "During daily use, it's recommended to avoid contact with sharp objects and corrosive liquids to prevent scratches and damage to the case. For cleaning, gently wipe with a soft, damp cloth without soaking for extended periods. Avoid using hot water or highly alkaline cleaning products to prevent damage to the material's performance and transparent appearance.",
+            "Special Notes:",
+            "Due to different measurement methods, variations of up to 0.5cm are normal and will not affect the product's fit with the iPhone 17 series. The images shown are for reference only. Due to certain objective factors during the production process (such as lighting, production batches, and material cutting), slight differences may occur between the actual product and the image, including but not limited to transparency, edge curvature, and slight deviations in hole placement. These are all normal phenomena.",
+        ],
+        shipping: {
+            price: "$3.63",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, realPrice: 3.29 },
+            { minQty: 10, maxQty: 49, realPrice: 3.12 },
+            { minQty: 50, realPrice: 2.96 },
         ],
     },
 ];

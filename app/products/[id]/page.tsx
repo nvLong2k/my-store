@@ -59,9 +59,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                 <button
                                     key={i}
                                     onClick={() => setActiveThumb(i)}
-                                    className={`w-14 h-14 rounded-md overflow-hidden border-2 transition-colors shrink-0 ${
-                                        activeThumb === i ? "border-[#e0781e]" : "border-transparent"
-                                    }`}
+                                    className={`w-14 h-14 rounded-md overflow-hidden border-2 transition-colors shrink-0 ${activeThumb === i ? "border-[#e0781e]" : "border-transparent"
+                                        }`}
                                 >
                                     <Image src={img} alt="" width={56} height={56} className="object-cover w-full h-full" />
                                 </button>
@@ -85,9 +84,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                         title={c.label}
                                         onClick={() => setActiveColor(i)}
                                         style={{ background: c.hex }}
-                                        className={`w-7 h-7 rounded-full border transition-colors shrink-0 ${
-                                            activeColor === i ? "border-gray-800" : "border-gray-200"
-                                        }`}
+                                        className={`w-7 h-7 rounded-full border transition-colors shrink-0 ${activeColor === i ? "border-gray-800" : "border-gray-200"
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -103,11 +101,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     <button
                                         key={i}
                                         onClick={() => setActiveSize(i)}
-                                        className={`border rounded-md px-4 py-1.5 text-[13px] transition-colors ${
-                                            activeSize === i
-                                                ? "border-[#4b9bdf] text-gray-800"
-                                                : "border-gray-300 text-gray-600"
-                                        }`}
+                                        className={`border rounded-md px-4 py-1.5 text-[13px] transition-colors ${activeSize === i
+                                            ? "border-[#4b9bdf] text-gray-800"
+                                            : "border-gray-300 text-gray-600"
+                                            }`}
                                     >
                                         {s.label}
                                     </button>
@@ -126,9 +123,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             ].map((m, i) => (
                                 <div
                                     key={i}
-                                    className={`p-3 ${
-                                        i < 2 ? "border-b sm:border-b-0 sm:border-r border-gray-200" : ""
-                                    }`}
+                                    className={`p-3 ${i < 2 ? "border-b sm:border-b-0 sm:border-r border-gray-200" : ""
+                                        }`}
                                 >
                                     <p className="text-gray-400 text-[11px] mb-1">{m.label}</p>
                                     <p className="font-medium text-gray-800">{m.value}</p>
@@ -166,13 +162,21 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {product.exclusiveRegion !== "US" && (
                         <div className="flex items-baseline gap-3 mb-5 flex-wrap">
                             <span className="text-[24px] md:text-[26px] font-semibold text-[#e0781e]">
-                                ${product.price.toFixed(2)}
+                                ${(product.price - 1).toFixed(2)}
                             </span>
+
                             <span className="text-[14px] text-gray-400 line-through">
                                 ${product.originalPrice.toFixed(2)}
                             </span>
+
                             <span className="text-[11px] font-medium text-[#bf5e0a] bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded">
-                                -{product.discount}%
+                                -
+                                {(
+                                    ((product.originalPrice - (product.price - 1)) /
+                                        product.originalPrice) *
+                                    100
+                                ).toFixed(0)}
+                                %
                             </span>
                         </div>
                     )}
@@ -194,7 +198,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                 {product.bulkPricing.map((tier, i) => (
                                     <div key={i}>
                                         <div className="flex items-baseline gap-1.5">
-                                            <span className="font-medium text-gray-800">${tier.price.toFixed(2)}</span>
+                                            {
+                                                tier?.price && (
+                                                    <span className="font-medium text-gray-800">${(tier.price - 1).toFixed(2)}</span>
+                                                )
+                                            }
                                             <span className="text-gray-400 line-through text-[12px]">
                                                 ${tier?.realPrice?.toFixed(2)}
                                             </span>
@@ -224,17 +232,16 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* Tabs */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden">
+            <div className="border border-gray-200 rounded-xl">
                 <div className="flex border-b border-gray-200 overflow-x-auto">
                     {TABS.map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`px-5 py-3 text-[14px] border-b-2 transition-colors whitespace-nowrap ${
-                                activeTab === tab
-                                    ? "text-[#e0781e] border-[#e0781e]"
-                                    : "text-gray-500 border-transparent hover:text-gray-700"
-                            }`}
+                            className={`px-5 py-3 text-[14px] border-b-2 transition-colors whitespace-nowrap ${activeTab === tab
+                                ? "text-[#e0781e] border-[#e0781e]"
+                                : "text-gray-500 border-transparent hover:text-gray-700"
+                                }`}
                         >
                             {tab}
                         </button>
@@ -255,41 +262,29 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {activeTab === "Size Guide" && product.sizes && (
                         <>
                             <div className="overflow-x-auto">
-                                <table className="border-collapse text-[13px] min-w-full">
+                                <table className="border-collapse text-[13px] min-w-max">
                                     <tbody>
                                         <tr>
-                                            <td className="border border-gray-200 px-3 md:px-4 py-2 text-gray-500 whitespace-nowrap">
+                                            <td className="border border-gray-200 px-3 py-2 text-gray-500 whitespace-nowrap sticky left-0 bg-white z-10">
                                                 Size
                                             </td>
                                             {product.sizes.map((s) => (
-                                                <td
-                                                    key={s.label}
-                                                    className="border border-gray-200 px-3 md:px-4 py-2 whitespace-nowrap"
-                                                >
+                                                <td key={s.label} className="border border-gray-200 px-3 py-2 whitespace-nowrap">
                                                     {s.label}
                                                 </td>
                                             ))}
                                         </tr>
 
                                         {Array.from(
-                                            new Set(
-                                                product.sizes.flatMap((s) =>
-                                                    Object.keys(s).filter((k) => k !== "label")
-                                                )
-                                            )
+                                            new Set(product.sizes.flatMap((s) => Object.keys(s).filter((k) => k !== "label")))
                                         ).map((field) => (
                                             <tr key={field}>
-                                                <td className="border border-gray-200 px-3 md:px-4 py-2 text-gray-500 whitespace-nowrap">
+                                                <td className="border border-gray-200 px-3 py-2 text-gray-500 whitespace-nowrap sticky left-0 bg-white z-10">
                                                     {SIZE_FIELD_LABELS[field] ??
-                                                        field
-                                                            .replace(/([A-Z])/g, " $1")
-                                                            .replace(/^./, (c) => c.toUpperCase())}
+                                                        field.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase())}
                                                 </td>
                                                 {product.sizes!.map((s) => (
-                                                    <td
-                                                        key={s.label}
-                                                        className="border border-gray-200 px-3 md:px-4 py-2 whitespace-nowrap"
-                                                    >
+                                                    <td key={s.label} className="border border-gray-200 px-3 py-2 whitespace-nowrap">
                                                         {s[field] ?? "—"}
                                                     </td>
                                                 ))}
