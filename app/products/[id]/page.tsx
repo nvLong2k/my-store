@@ -23,6 +23,7 @@ const SIZE_FIELD_LABELS: Record<string, string> = {
     recommendedHeight: "Recommended height",
     recommendedWeight: "Recommended weight",
     waist: "Waist 1 / 2",
+    headCircumference: "Head circumference",
 };
 
 const TABS = ["Description", "Size Guide"] as const;

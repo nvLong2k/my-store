@@ -21,6 +21,7 @@ export type SizeOption = {
     brimOfHat?: string;
     hatHeight?: string;
     waist?: string;
+    headCircumference?: string;
     [key: string]: string | undefined;
 };
 
@@ -368,7 +369,7 @@ export const products: Product[] = [
     {
         id: 9,
         name: "Washed Baseball Cap (DTF) | Cotton (Made in USA）",
-        price: 3.74,
+        price: 3.47,
         originalPrice: 4.34,
         discount: 20,
         avgProductionDays: 1.5,
@@ -919,7 +920,6 @@ export const products: Product[] = [
         images: ["/images/FVDAYX_20_1.jpg"],
         isNew: true,
         origin: "CN",
-        exclusiveRegion: "US",
         colors: [
             { label: "d9faf6", hex: "#d9faf6" },
         ],
@@ -953,6 +953,418 @@ export const products: Product[] = [
             { minQty: 1, maxQty: 9, realPrice: 3.29 },
             { minQty: 10, maxQty: 49, realPrice: 3.12 },
             { minQty: 50, realPrice: 2.96 },
+        ],
+    },
+    {
+        id: 22,
+        name: "iPhone 17 Pro Transparent Phone Case | TPU",
+        price: 2.36,
+        originalPrice: 3.29,
+        discount: 20,
+        avgProductionDays: 3,
+        images: ["/images/DP5VGP_20_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        colors: [
+            { label: "d9faf6", hex: "#d9faf6" },
+        ],
+        sizes: [
+            { label: "iPhone 17Pro", long: "6in/15.2cm", width: "3in/7.6cm", thickness: "0.47in/1.2cm" },
+        ],
+        meta: {
+            material: "TPU",
+            weight: "67 g",
+        },
+        description: [
+            "Material Description:",
+            "Made of high-quality TPU material, which is flexible and resilient, offering excellent impact and abrasion resistance. Its pure, transparent texture perfectly reflects the natural color of the iPhone 17 series and exhibits excellent anti-yellowing properties, maintaining its translucent appearance even after long-term use.",
+            "Product Performance:",
+            "Strong drop protection, comprehensive protection: Leveraging the excellent cushioning properties of TPU, it effectively disperses the impact of accidental drops and collisions, effectively resisting damage to the edges, body, and screen. This provides comprehensive drop protection for the iPhone 17 series, reducing the risk of damage during daily use.",
+            "Precise fit, comfortable operation: Precisely molded to the dimensions of the iPhone 17 series, with perfectly aligned holes, the case fits snugly and prevents shifting. The independent button design replicates the original feel of the device, offering responsive control comparable to the original, with one-touch operation for a smooth user experience.",
+            "Stain-resistant and easy to clean, durable and long-lasting: The specially treated surface resists fingerprints, sweat, and everyday stains. Simply wipe with a soft cloth after daily use to quickly restore cleanliness. It remains durable even after repeated disassembly and use, and is scratch-resistant and abrasion-resistant, ensuring it remains in good condition over time.",
+            "Lightweight and portable, versatile and practical: The ultra-thin design provides strong protection without adding excessive thickness or weight to your phone, maintaining the iPhone's inherent slim feel. It slips easily into pockets and backpacks for easy portability. The transparent exterior offers a simple and elegant look that complements any style, perfect for daily commutes or casual outings.",
+            "Useful Scenarios:",
+            "Whether commuting, relaxing at home, studying, or enjoying the outdoors, this case provides reliable protection for your iPhone 17 series. Create a personalized look, and it's also suitable for customizing with your company's logo or giving as a gift to clients or employees. Furthermore, it effectively protects the phone from scratches and stains during storage and on-the-go.",
+            "Exquisite Design:",
+            "During daily use, it's recommended to avoid contact with sharp objects and corrosive liquids to prevent scratches and damage to the case. For cleaning, gently wipe with a soft, damp cloth without soaking for extended periods. Avoid using hot water or highly alkaline cleaning products to prevent damage to the material's performance and transparent appearance.",
+            "Special Notes:",
+            "Due to different measurement methods, variations of up to 0.5cm are normal and will not affect the product's fit with the iPhone 17 series. The images shown are for reference only. Due to certain objective factors during the production process (such as lighting, production batches, and material cutting), slight differences may occur between the actual product and the image, including but not limited to transparency, edge curvature, and slight deviations in hole placement. These are all normal phenomena.",
+        ],
+        shipping: {
+            price: "$3.52",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, realPrice: 3.29 },
+            { minQty: 10, maxQty: 49, realPrice: 3.12 },
+            { minQty: 50, realPrice: 2.96 },
+        ],
+    },
+    {
+        id: 23,
+        name: "iPhone 17 Air Transparent Phone Case | TPU",
+        price: 2.36,
+        originalPrice: 3.29,
+        discount: 20,
+        avgProductionDays: 3,
+        images: ["/images/YEDSTG_20_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        colors: [
+            { label: "d9faf6", hex: "#d9faf6" },
+        ],
+        sizes: [
+            { label: "iPhone 17Air", long: "6.26in/15.9cm", width: "3.11in/7.9cm", thickness: "0.35in/0.9cm" },
+        ],
+        meta: {
+            material: "TPU",
+            weight: "69 g",
+        },
+        description: [
+            "Material Description:",
+            "Made of high-quality TPU material, which is flexible and resilient, offering excellent impact and abrasion resistance. Its pure, transparent texture perfectly reflects the natural color of the iPhone 17 series and exhibits excellent anti-yellowing properties, maintaining its translucent appearance even after long-term use.",
+            "Product Performance:",
+            "Strong drop protection, comprehensive protection: Leveraging the excellent cushioning properties of TPU, it effectively disperses the impact of accidental drops and collisions, effectively resisting damage to the edges, body, and screen. This provides comprehensive drop protection for the iPhone 17 series, reducing the risk of damage during daily use.",
+            "Precise fit, comfortable operation: Precisely molded to the dimensions of the iPhone 17 series, with perfectly aligned holes, the case fits snugly and prevents shifting. The independent button design replicates the original feel of the device, offering responsive control comparable to the original, with one-touch operation for a smooth user experience.",
+            "Stain-resistant and easy to clean, durable and long-lasting: The specially treated surface resists fingerprints, sweat, and everyday stains. Simply wipe with a soft cloth after daily use to quickly restore cleanliness. It remains durable even after repeated disassembly and use, and is scratch-resistant and abrasion-resistant, ensuring it remains in good condition over time.",
+            "Lightweight and portable, versatile and practical: The ultra-thin design provides strong protection without adding excessive thickness or weight to your phone, maintaining the iPhone's inherent slim feel. It slips easily into pockets and backpacks for easy portability. The transparent exterior offers a simple and elegant look that complements any style, perfect for daily commutes or casual outings.",
+            "Useful Scenarios:",
+            "Whether commuting, relaxing at home, studying, or enjoying the outdoors, this case provides reliable protection for your iPhone 17 series. Create a personalized look, and it's also suitable for customizing with your company's logo or giving as a gift to clients or employees. Furthermore, it effectively protects the phone from scratches and stains during storage and on-the-go.",
+            "Exquisite Design:",
+            "During daily use, it's recommended to avoid contact with sharp objects and corrosive liquids to prevent scratches and damage to the case. For cleaning, gently wipe with a soft, damp cloth without soaking for extended periods. Avoid using hot water or highly alkaline cleaning products to prevent damage to the material's performance and transparent appearance.",
+            "Special Notes:",
+            "Due to different measurement methods, variations of up to 0.5cm are normal and will not affect the product's fit with the iPhone 17 series. The images shown are for reference only. Due to certain objective factors during the production process (such as lighting, production batches, and material cutting), slight differences may occur between the actual product and the image, including but not limited to transparency, edge curvature, and slight deviations in hole placement. These are all normal phenomena.",
+        ],
+        shipping: {
+            price: "$3.56",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, realPrice: 3.29 },
+            { minQty: 10, maxQty: 49, realPrice: 3.12 },
+            { minQty: 50, realPrice: 2.96 },
+        ],
+    },
+    {
+        id: 24,
+        name: "iPhone 17 Transparent Phone Case | TPU",
+        price: 2.36,
+        originalPrice: 3.29,
+        discount: 20,
+        avgProductionDays: 3,
+        images: ["/images/Z8B8CX_20_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        colors: [
+            { label: "d9faf6", hex: "#d9faf6" },
+        ],
+        sizes: [
+            { label: "iPhone 17", long: "6.02in/15.3cm", width: "3.03in/7.7cm", thickness: "0.43in/1.1cm" },
+        ],
+        meta: {
+            material: "TPU",
+            weight: "69 g",
+        },
+        description: [
+            "Material Description:",
+            "Made of high-quality TPU material, which is flexible and resilient, offering excellent impact and abrasion resistance. Its pure, transparent texture perfectly reflects the natural color of the iPhone 17 series and exhibits excellent anti-yellowing properties, maintaining its translucent appearance even after long-term use.",
+            "Product Performance:",
+            "Strong drop protection, comprehensive protection: Leveraging the excellent cushioning properties of TPU, it effectively disperses the impact of accidental drops and collisions, effectively resisting damage to the edges, body, and screen. This provides comprehensive drop protection for the iPhone 17 series, reducing the risk of damage during daily use.",
+            "Precise fit, comfortable operation: Precisely molded to the dimensions of the iPhone 17 series, with perfectly aligned holes, the case fits snugly and prevents shifting. The independent button design replicates the original feel of the device, offering responsive control comparable to the original, with one-touch operation for a smooth user experience.",
+            "Stain-resistant and easy to clean, durable and long-lasting: The specially treated surface resists fingerprints, sweat, and everyday stains. Simply wipe with a soft cloth after daily use to quickly restore cleanliness. It remains durable even after repeated disassembly and use, and is scratch-resistant and abrasion-resistant, ensuring it remains in good condition over time.",
+            "Lightweight and portable, versatile and practical: The ultra-thin design provides strong protection without adding excessive thickness or weight to your phone, maintaining the iPhone's inherent slim feel. It slips easily into pockets and backpacks for easy portability. The transparent exterior offers a simple and elegant look that complements any style, perfect for daily commutes or casual outings.",
+            "Useful Scenarios:",
+            "Whether commuting, relaxing at home, studying, or enjoying the outdoors, this case provides reliable protection for your iPhone 17 series. Create a personalized look, and it's also suitable for customizing with your company's logo or giving as a gift to clients or employees. Furthermore, it effectively protects the phone from scratches and stains during storage and on-the-go.",
+            "Exquisite Design:",
+            "During daily use, it's recommended to avoid contact with sharp objects and corrosive liquids to prevent scratches and damage to the case. For cleaning, gently wipe with a soft, damp cloth without soaking for extended periods. Avoid using hot water or highly alkaline cleaning products to prevent damage to the material's performance and transparent appearance.",
+            "Special Notes:",
+            "Due to different measurement methods, variations of up to 0.5cm are normal and will not affect the product's fit with the iPhone 17 series. The images shown are for reference only. Due to certain objective factors during the production process (such as lighting, production batches, and material cutting), slight differences may occur between the actual product and the image, including but not limited to transparency, edge curvature, and slight deviations in hole placement. These are all normal phenomena.",
+        ],
+        shipping: {
+            price: "$3.59",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, realPrice: 3.29 },
+            { minQty: 10, maxQty: 49, realPrice: 3.12 },
+            { minQty: 50, realPrice: 2.96 },
+        ],
+    },
+    {
+        id: 25,
+        name: "11oz Mug | Ceramic (Made in USA)",
+        price: 4.50,
+        originalPrice: 5.63,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/DBUO8G_6_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "White", hex: "#FFFFFF" },
+        ],
+        sizes: [
+            { label: "One size", high: "3.7inch/9.6cm", width: "3.2inch/8.3cm", capacity: "11 oz" },
+        ],
+        meta: {
+            material: "Ceramics",
+            weight: "435 g",
+        },
+        description: [
+            "Product shipping location:2312 Edwards Ave,South El Monte,CA,91733",
+            "Recommended Image Pixels: 2480 x 1004 px",
+            "Design: Full-width Print",
+            "Material: Ceramic",
+            "Washing Instructions: Hand wash recommended; avoid soaking for extended periods.",
+            "Product Features:",
+            "These mugs are made from high-quality ceramic. Made from high-quality ceramic, they are bright and safe, adding a sense of security to your life. The vibrant, lustrous colors resist fading after repeated washings. They offer enhanced heat resistance for long-term use and are freezer and microwave safe, while preserving the mug's design. They are perfect for everyday use at home and in the office, and even for camping trips.",
+            "Suitable Occasions: Our custom mugs are not only everyday essentials, but also special gifts for any occasion. Whether you're giving them to family, friends, or colleagues, the personalized touch makes them a warm and thoughtful choice. Personalization adds a unique element to your gift.",
+            "Special Note: Due to measurement differences, variations of up to 1 cm are normal. Warm Tips: The picture display effect is for reference only. There are certain objective factors in the production process that may lead to slight differences between the actual product and the rendering, including but not limited to size, position, color, etc. The above is a normal phenomenon",
+        ],
+        shipping: {
+            price: "$4.01~$8.20",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 26,
+        name: "Single-Sided Printed Personalized Canvas Bag | Canvas (Made in USA)",
+        price: 4.08,
+        originalPrice: 5.63,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/U5UKLD_6_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "White", hex: "#FFFFFF" },
+        ],
+        sizes: [
+            { label: "One size", long: "50cm", width: "13cm", high: "37cm" },
+        ],
+        meta: {
+            material: "Canvas",
+            weight: "186 g",
+        },
+        description: [
+            "Place of shipment: 100 Alexander Ave,Pompton plains,Nj,07444",
+            "Recommended Image Pixel Dimensions: 1500x1250px",
+            "Design Description: Single-sided printing",
+            "Material Description: 12oz Canvas (80% Polyester, 20% Cotton)",
+            "Product Features:",
+            "Applicable Scenarios: Can be used for shopping, beach trips, travel, shopping, fitness, educational customization, team customization, training customization, or any other purpose you can think of.",
+            "Washing Instructions: Hand wash or machine wash. Do not soak for a long time. Do not bleach. The washing liquid temperature should not exceed 45℃.",
+            "Special Note: Due to different measurement methods, an error of 1-2cm in this size data is considered normal.",
+            "Warm Reminder: The image display effect is for reference only. Due to objective factors such as production batches, equipment parameters, and shooting light, there may be slight differences between the actual product and the image, including but not limited to size, position, and color difference. The above are considered normal phenomena."
+        ],
+        shipping: {
+            price: "$3.33~$6.25",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 27,
+        name: "20oz Insulated Cup | Stainless Steel (Made in USA)",
+        price: 8.30,
+        originalPrice: 10.38,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/Y3A7QF_6_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "White", hex: "#FFFFFF" },
+        ],
+        sizes: [
+            { label: "One size", width: "3.35inch/8.5cm", high: "6.69inch/17cm" },
+        ],
+        meta: {
+            material: "Stainless steel 304",
+            weight: "300 g",
+        },
+        description: [
+            "Product shipping location:28526 Hannahs Harbor Lane,Katy,TX,77494",
+            "Recommended Image Pixel Dimensions: 3156x1747px",
+            "Design Description: Single-sided printing",
+            "Material Description: Made of high-quality 304 food-grade stainless steel, rust-proof and easy to clean.",
+            "Product Performance:",
+            "Made of high-quality non-toxic stainless steel material, sturdy, drop-resistant, and non-deformable, odorless and harmless, safe to use.",
+            "Adopts double-layer vacuum insulation technology, resistant to hot and cold temperatures without odor, and has excellent heat preservation performance.",
+            "Equipped with a leak-proof lid to effectively prevent beverage leakage and keep the car clean and tidy.",
+            "Detachable design for easy cleaning and hygiene.",
+            "Applicable Scenarios: Suitable for hot drinks, as well as cold drinks, tea, juice, etc., meeting the needs of different tastes.",
+            "Washing Instructions: Easy to clean and can be used repeatedly. Upon receipt, please scald with boiling water before use to remove any dust or debris from the manufacturing process.",
+            "Special Note: Due to different measurement methods, an error of 1-2cm in the size data is considered normal.",
+            "Warm Reminder: The image display effect is for reference only. Due to objective factors such as production batches, equipment parameters, and shooting light, there may be slight differences between the actual product and the image, including but not limited to size, position, and color difference. The above are considered normal phenomena."
+        ],
+        shipping: {
+            price: "$3.74~$6.78",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 28,
+        name: "Single-sided printed Painted Glass Ornament（Convex Surface） | Glass (Made in USA）",
+        price: 4.66,
+        originalPrice: 5.83,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/V44FLP_5_1_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "Black", hex: "black" },
+        ],
+        sizes: [
+            { label: "9cm", diameter: "3.5in/9cm" },
+            { label: "16cm", diameter: "6.3in/16cm" },
+            { label: "20cm", diameter: "7.8in/20cm" },
+            { label: "25cm", diameter: "9.8in/25cm" },
+            { label: "30cm", diameter: "11.8in/30cm" },
+        ],
+        meta: {
+            material: "Glass",
+            weight: "90 g",
+        },
+        description: [
+            "Product shipping location: 16515 Hedgecroft Dr Ste, Houston, TX 77060",
+            "Suggested image resolution: 1500×1500px",
+            "Design Description: Single-sided printing (The viewing side is the flat side)",
+            "Material Description: Selected high-transparency soda-lime glass, pure in texture and with excellent light transmission.",
+            "Product Performance: Made with a high-temperature firing process, sturdy and durable, not easily worn. The ornament is lightweight and portable, paired with an exquisite metal chain for stable hanging. The unique painted design, under sunlight or lamplight, creates a dreamy artistic atmosphere with interplay of light and shadow, adding romance and warmth to the space.",
+            "Applicable Scenarios: Can be used as home decoration, hung in front of windows, entryways, and bedrooms to create a personalized space; also suitable for holiday decorations, decorating Christmas trees and party venues; can also be given as a gift for weddings, birthdays, anniversaries, etc., to convey sentiments; also supports corporate customization and event customization for brand promotion or event commemoration.",
+            "Washing Instructions: It is recommended to gently wipe clean with a soft damp cloth, avoiding the use of abrasive cleaning tools to scratch the surface. Do not soak, and do not use corrosive cleaning agents to prevent damage to the glass and the pattern.",
+            "Special Note: Due to the nature of the hand-painting and firing process, slight variations in pattern details and color intensity may exist in each pendant. Size errors within 0.5–1cm are considered normal; these unique differences are precisely what give it its artistic charm.",
+            "Friendly Reminder: The image shown is for reference only. Due to factors such as production batches, equipment parameters, and lighting conditions, slight differences may exist between the actual product and the image, including but not limited to size, position, and color variations. These are considered normal."
+        ],
+        shipping: {
+            price: "$3.29~$5.81",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 29,
+        name: "MaoQing Fabric Baseball Cap (DTF) | Polyester (Made in USA）",
+        price: 3.47,
+        originalPrice: 4.34,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/9D2GPZ_5_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "Black", hex: "black" },
+        ],
+        sizes: [
+            { label: "One Size", headCircumference: "22-23in/55-59cm", brimOfHat: "2.8in/7cm", hatHeight: "3.5in/9cm" },
+        ],
+        meta: {
+            material: "Terylene",
+            weight: "135 g",
+        },
+        description: [
+            "Place of shipment: 216 S. 5th Ave,City of industry,CA,91746",
+            "Recommended image pixel：1969x1181px",
+            "Design Description ：Single-sided printing",
+            "Material description：Polyester",
+            "Product performance：The fabric is thicker and feels harder. The top of the hat is reinforced. Oxford lining is naturally comfortable and breathable, light and dry. The inner lining adds a sweat-absorbent belt to absorb sweat and moisture. It fits the head circumference well. The back has an adjustable magic buckle design, which allows you to freely adjust the size of the hat circumference. It is practical and can be used in all seasons. The air vent design does not make it stuffy. It is light and not easy to deform and easy to carry. The classic curved brim baseball cap is tough and crisp, not picky about face shape, cool and stylish.",
+            "Applicable Scenarios ： Daily, going out, sports, outdoor activities, travel, etc",
+            "Washing Instructions ： It is recommended to wash by hand, wash less, do not press or machine wash.",
+            "Special Instructions ： Due to different measurement methods, the error of this size data within 1-2cm is normal.",
+            "Warm Reminder： The picture display effect is for reference only. Affected by objective factors such as production batches, equipment parameters, shooting light, etc., there may be slight differences between the actual object and the picture, including but not limited to size, position, color difference, etc. The above is a normal phenomenon.",
+        ],
+        shipping: {
+            price: "$3.33~$6.25",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 30,
+        name: "Curved Brim Mesh Baseball Cap | Polyester",
+        price: 5.52,
+        originalPrice: 6.90,
+        discount: 20,
+        avgProductionDays: 4,
+        images: ["/images/VNS9NF_5_1.jpg"],
+        isNew: true,
+        origin: "CN",
+        colors: [
+            { label: "Black", hex: "black" },
+        ],
+        sizes: [
+            { label: "One Size", capacity: "22~23.6inch/56~60cm", brimOfHat: "2.8in/7cm", hatHeight: "4.3inch/11cm" },
+        ],
+        meta: {
+            material: "Terylene",
+            weight: "126 g",
+        },
+        description: [
+            "Design Description: Full all-over print on the front panel and brim.",
+            "· Material Description: Polyester.",
+            "Product Features: Made from high-quality twill fabric, this cap offers a moderate softness and retains its structured shape for a stylish look. The reinforced top and Oxford lining add durability, while the mesh back panel ensures breathability, keeping you cool and dry. An internal sweatband absorbs moisture for added comfort, and the adjustable snapback closure at the rear allows for a customizable fit. The cap is lightweight, easy to carry, and retains its shape well. Designed for year-round wear, it features ventilation holes to prevent overheating. The fashionable and structured design ensures a stylish and comfortable fit.",
+            "· Applicable Scenarios: Suitable for daily wear, outdoor activities, sports, travel, and more.",
+            "· Suitable for: Unisex (Men & Women).",
+            "· Washing Instructions: Hand wash recommended; avoid frequent washing. Do not wring, do not machine wash, and do not bleach.",
+            "· Special Note: Due to different measurement methods, a size deviation of 1-2cm is considered normal.",
+        ],
+        shipping: {
+            price: "$4.76",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, price: 5.52, realPrice: 6.90 },
+            { minQty: 10, maxQty: 49, price: 5.27, realPrice: 6.59 },
+            { minQty: 50, price: 4.99, realPrice: 6.24 },
+        ],
+    },
+    {
+        id: 32,
+        name: "Baseball Cap (Supports Front and Side Printing) | Cotton",
+        price: 3.84,
+        originalPrice: 4.80,
+        discount: 20,
+        avgProductionDays: 3,
+        images: ["/images/9S5UXU_123_1_10.jpg"],
+        isNew: true,
+        origin: "CN",
+        colors: [
+            { label: "f4f8d9", hex: "#f4f8d9" },
+            { label: "f8c2cf", hex: "#f8c2cf" },
+            { label: "030a9f", hex: "#030a9f" },
+            { label: "Black", hex: "black" },
+            { label: "White", hex: "white" },
+            { label: "808080", hex: "#808080" },
+            { label: "800080", hex: "#800080" },
+            { label: "1d364a", hex: "#1d364a" },
+        ],
+        sizes: [
+            { label: "One Size", headCircumference: "22-23in/55-59cm", brimOfHat: "2.8in/7cm", hatHeight: "5inch/13cm" },
+        ],
+        meta: {
+            material: "Terylene",
+            weight: "135 g",
+        },
+        description: [
+            "【Material Description】Cotton",
+            "【Product Performance】Put this cap on during all outdoor activities to protect your skin from harmful UV rays and to keep your hair away from your face and eyes.Lightweight / durable. Adjustable metal button visor, suitable for most head shapes.",
+            "【Applicable scene】 Suitable for more sports scenes, such as it is also great for fitness, camping, beach, hiking, golf, baseball, outdoor caps, suitable for any outdoor sports and activities.",
+            "【Applicable crowd】Unisex Washing instructions] Hand wash recommended, not machine washable.",
+            "【Special instructions】This size data due to different measurement methods, the error in about 0.8 inches is normal.",
+            "【Note】The product is manufactured on demand, order can from one piece, to provide a variety of shipping routes, the cost varies depending on the efficiency of time."
+        ],
+        shipping: {
+            price: "$4.76",
+            description: "Global shipping (US rates shown by default)"
+        },
+        bulkPricing: [
+            { minQty: 1, maxQty: 9, price: 3.84, realPrice: 4.80 },
+            { minQty: 10, maxQty: 49, price: 3.68, realPrice: 4.61 },
+            { minQty: 50, price: 3.48, realPrice: 4.36 },
         ],
     },
 ];
