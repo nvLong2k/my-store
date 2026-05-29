@@ -1,9 +1,9 @@
-// app/products/[id]/page.tsx
 "use client";
 
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { use, useState } from "react";
+import { use, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { products } from "@/src/mock/products";
 
@@ -29,278 +29,384 @@ const SIZE_FIELD_LABELS: Record<string, string> = {
 const TABS = ["Description", "Size Guide"] as const;
 type Tab = (typeof TABS)[number];
 
-export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default function ProductDetailPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
     const { id } = use(params);
+
     const product = products.find((p) => String(p.id) === id);
+
     if (!product) notFound();
 
     const [activeTab, setActiveTab] = useState<Tab>("Description");
-    const [activeThumb, setActiveThumb] = useState<number>(0);
-    const [activeColor, setActiveColor] = useState<number>(0);
-    const [activeSize, setActiveSize] = useState<number>(0);
+    const [activeThumb, setActiveThumb] = useState(0);
+    const [activeColor, setActiveColor] = useState(0);
+    const [activeSize, setActiveSize] = useState(0);
+
+    const discountPercent = useMemo(() => {
+        return (
+            ((product.originalPrice - (product.price - 1)) /
+                product.originalPrice) *
+            100
+        ).toFixed(0);
+    }, [product]);
 
     return (
-        <div className="max-w-5xl mx-auto px-4 py-6 md:py-10">
-            {/* Top */}
-            <div className="grid md:grid-cols-2 gap-6 md:gap-10 mb-8 md:mb-10">
-                {/* Images */}
-                <div>
-                    <div className="relative aspect-square bg-[#f5f4f0] rounded-xl overflow-hidden border border-gray-200">
-                        <Image
-                            src={product.images[activeThumb]}
-                            alt={product.name}
-                            width={498}
-                            height={498}
-                            className="object-cover"
-                        />
-                    </div>
-                    {product.images.length > 1 && (
-                        <div className="flex gap-2 mt-3 flex-wrap">
-                            {product.images.map((img, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setActiveThumb(i)}
-                                    className={`w-14 h-14 rounded-md overflow-hidden border-2 transition-colors shrink-0 ${activeThumb === i ? "border-[#e0781e]" : "border-transparent"
-                                        }`}
+        <div className="bg-[#fafafa] min-h-screen">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10">
+
+                {/* TOP */}
+                <div className="grid lg:grid-cols-2 gap-10 items-start">
+
+                    {/* LEFT */}
+                    <div>
+
+                        {/* Main Image */}
+                        <motion.div
+                            layout
+                            className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm"
+                        >
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={activeThumb}
+                                    initial={{ opacity: 0, scale: 1.03 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.25 }}
                                 >
-                                    <Image src={img} alt="" width={56} height={56} className="object-cover w-full h-full" />
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </div>
-
-                {/* Info */}
-                <div>
-                    <h1 className="text-base md:text-lg font-medium leading-snug mb-4">{product.name}</h1>
-
-                    {/* Colors */}
-                    {product.colors && product.colors.length > 0 && (
-                        <div className="mb-4">
-                            <p className="text-[13px] text-gray-500 mb-2">Color:</p>
-                            <div className="flex gap-2 flex-wrap">
-                                {product.colors.map((c, i) => (
-                                    <button
-                                        key={i}
-                                        title={c.label}
-                                        onClick={() => setActiveColor(i)}
-                                        style={{ background: c.hex }}
-                                        className={`w-7 h-7 rounded-full border transition-colors shrink-0 ${activeColor === i ? "border-gray-800" : "border-gray-200"
-                                            }`}
+                                    <Image
+                                        src={product.images[activeThumb]}
+                                        alt={product.name}
+                                        width={900}
+                                        height={900}
+                                        priority
+                                        className="w-full aspect-square object-cover"
                                     />
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                                </motion.div>
+                            </AnimatePresence>
 
-                    {/* Sizes */}
-                    {product.sizes && product.sizes.length > 0 && (
-                        <div className="mb-5">
-                            <p className="text-[13px] text-gray-500 mb-2">Size:</p>
-                            <div className="flex gap-2 flex-wrap">
-                                {product.sizes.map((s, i) => (
+                            {/* Discount badge */}
+                            <div className="absolute top-4 left-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                                -{discountPercent}%
+                            </div>
+                        </motion.div>
+
+                        {/* Thumbnails */}
+                        {product.images.length > 1 && (
+                            <div className="flex gap-3 mt-4 overflow-x-auto pb-1">
+                                {product.images.map((img, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setActiveSize(i)}
-                                        className={`border rounded-md px-4 py-1.5 text-[13px] transition-colors ${activeSize === i
-                                            ? "border-[#4b9bdf] text-gray-800"
-                                            : "border-gray-300 text-gray-600"
-                                            }`}
+                                        onClick={() => setActiveThumb(i)}
+                                        className={`
+                      relative overflow-hidden rounded-xl border transition-all duration-300 shrink-0
+                      ${activeThumb === i
+                                                ? "border-[#e0781e] scale-105 shadow-md"
+                                                : "border-gray-200 opacity-70 hover:opacity-100"}
+                    `}
                                     >
-                                        {s.label}
+                                        <Image
+                                            src={img}
+                                            alt=""
+                                            width={72}
+                                            height={72}
+                                            className="w-18 h-18 object-cover"
+                                        />
                                     </button>
                                 ))}
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
 
-                    {/* Meta */}
-                    {product.meta && (
-                        <div className="grid grid-cols-1 sm:grid-cols-3 border border-gray-200 rounded-lg overflow-hidden mb-5 text-[13px]">
-                            {[
-                                { label: "Material", value: product.meta.material },
-                                { label: "Weight", value: product.meta.weight },
-                                { label: "Avg. production time", value: `${product.avgProductionDays} days` },
-                            ].map((m, i) => (
-                                <div
-                                    key={i}
-                                    className={`p-3 ${i < 2 ? "border-b sm:border-b-0 sm:border-r border-gray-200" : ""
-                                        }`}
-                                >
-                                    <p className="text-gray-400 text-[11px] mb-1">{m.label}</p>
-                                    <p className="font-medium text-gray-800">{m.value}</p>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                    {/* RIGHT */}
+                    <div className="lg:sticky lg:top-6">
 
-                    {/* Promo box */}
-                    {product.exclusiveRegion === "US" && (
-                        <div className="border border-[#f0c882] rounded-lg overflow-hidden bg-[#fff8ed] mb-4">
-                            <div className="bg-red-600 px-3 py-1.5 flex items-center gap-2">
-                                <Image
-                                    src="/images/usa.e8bde4e6.png"
-                                    alt="USA"
-                                    width={54}
-                                    height={32}
-                                    className="object-contain shrink-0"
-                                />
-                                <span className="text-white text-[13px] font-medium">Exclusive offers in the US</span>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight"
+                        >
+                            {product.name}
+                        </motion.h1>
+
+                        {/* Rating fake */}
+                        <div className="flex items-center gap-2 mt-3 text-sm">
+                            <div className="flex text-yellow-400">
+                                ★★★★★
                             </div>
-                            <div className="px-4 py-2.5 flex items-baseline gap-3 flex-wrap">
-                                <span className="text-[13px] text-gray-500">Price:</span>
-                                <span className="text-[24px] md:text-[26px] font-semibold text-[#e0781e]">
-                                    ${(product.price - 1).toFixed(2)}
-                                </span>
-                                <span className="text-[14px] text-gray-400 line-through">
-                                    ${product.originalPrice.toFixed(2)}
-                                </span>
-                            </div>
+                            <span className="text-gray-500">
+                                4.9 (128 reviews)
+                            </span>
                         </div>
-                    )}
 
-                    {/* Price (non-exclusive) */}
-                    {product.exclusiveRegion !== "US" && (
-                        <div className="flex items-baseline gap-3 mb-5 flex-wrap">
-                            <span className="text-[24px] md:text-[26px] font-semibold text-[#e0781e]">
+                        {/* Price */}
+                        <div className="mt-6 flex items-end gap-3 flex-wrap">
+                            <span className="text-4xl font-bold text-[#e0781e]">
                                 ${(product.price - 1).toFixed(2)}
                             </span>
 
-                            <span className="text-[14px] text-gray-400 line-through">
+                            <span className="text-lg text-gray-400 line-through">
                                 ${product.originalPrice.toFixed(2)}
                             </span>
 
-                            <span className="text-[11px] font-medium text-[#bf5e0a] bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded">
-                                -
-                                {(
-                                    ((product.originalPrice - (product.price - 1)) /
-                                        product.originalPrice) *
-                                    100
-                                ).toFixed(0)}
-                                %
+                            <span className="bg-orange-100 text-orange-700 border border-orange-200 text-xs font-semibold px-2 py-1 rounded-full">
+                                Save {discountPercent}%
                             </span>
                         </div>
-                    )}
 
-                    {/* Bulk — no tiers */}
-                    {!product.bulkPricing && (
-                        <div className="border border-gray-200 rounded-lg px-4 py-3 mb-4 text-[13px]">
-                            <p className="text-[12px] text-gray-500 font-medium mb-1">Bulk Price</p>
-                            <p className="line-through text-gray-600">${product.originalPrice.toFixed(2)}</p>
-                            <p className="text-gray-400 text-[12px]">1+ Pieces</p>
-                        </div>
-                    )}
+                        {/* Shipping */}
+                        {product.shipping && (
+                            <div className="mt-5 bg-white border border-gray-200 rounded-2xl p-4">
+                                <div className="flex items-start gap-3">
+                                    <div className="text-xl">🚚</div>
 
-                    {/* Bulk — with tiers */}
-                    {product.bulkPricing && product.bulkPricing.length > 0 && (
-                        <div className="border border-gray-200 rounded-lg px-4 py-3 mb-4 text-[13px]">
-                            <p className="text-[12px] text-gray-500 font-medium mb-2">Bulk Price:</p>
-                            <div className="flex gap-4 flex-wrap">
-                                {product.bulkPricing.map((tier, i) => (
-                                    <div key={i}>
-                                        <div className="flex items-baseline gap-1.5">
-                                            {
-                                                tier?.price && (
-                                                    <span className="font-medium text-gray-800">${(tier.price - 1).toFixed(2)}</span>
-                                                )
-                                            }
-                                            <span className="text-gray-400 line-through text-[12px]">
-                                                ${tier?.realPrice?.toFixed(2)}
-                                            </span>
-                                        </div>
-                                        <p className="text-gray-400 text-[12px] mt-0.5">
-                                            {tier.maxQty ? `${tier.minQty}-${tier.maxQty}` : `${tier.minQty}+`} Pieces
+                                    <div>
+                                        <p className="font-medium text-gray-900">
+                                            Shipping
+                                        </p>
+
+                                        <p className="text-sm text-gray-500 mt-1">
+                                            {product.shipping.price}
+                                        </p>
+
+                                        <p className="text-sm text-[#e0781e] underline mt-1 cursor-pointer">
+                                            {product.shipping.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Colors */}
+                        {product.colors && product.colors.length > 0 && (
+                            <div className="mt-6">
+                                <p className="text-sm font-medium mb-3 text-gray-800">
+                                    Color
+                                </p>
+
+                                <div className="flex gap-3 flex-wrap">
+                                    {product.colors.map((c, i) => (
+                                        <button
+                                            key={i}
+                                            title={c.label}
+                                            onClick={() => setActiveColor(i)}
+                                            style={{ background: c.hex }}
+                                            className={`
+                        w-9 h-9 rounded-full border-4 transition-all duration-200
+                        ${activeColor === i
+                                                    ? "border-white ring-2 ring-gray-900 scale-110"
+                                                    : "border-white ring-1 ring-gray-300"}
+                      `}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Sizes */}
+                        {product.sizes && (
+                            <div className="mt-6">
+                                <div className="flex items-center justify-between mb-3">
+                                    <p className="text-sm font-medium text-gray-800">
+                                        Size
+                                    </p>
+
+                                    <button
+                                        onClick={() => setActiveTab("Size Guide")}
+                                        className="text-sm text-[#e0781e] hover:underline"
+                                    >
+                                        Size Guide
+                                    </button>
+                                </div>
+
+                                <div className="flex gap-2 flex-wrap">
+                                    {product.sizes.map((s, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => setActiveSize(i)}
+                                            className={`
+                        min-w-13 px-4 py-2 rounded-xl text-sm border transition-all duration-200
+                        ${activeSize === i
+                                                    ? "bg-gray-900 text-white border-gray-900"
+                                                    : "bg-white border-gray-300 hover:border-gray-900"}
+                      `}
+                                        >
+                                            {s.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Meta */}
+                        {product.meta && (
+                            <div className="grid grid-cols-3 gap-3 mt-7">
+                                {[
+                                    {
+                                        label: "Material",
+                                        value: product.meta.material,
+                                    },
+                                    {
+                                        label: "Weight",
+                                        value: product.meta.weight,
+                                    },
+                                    {
+                                        label: "Production",
+                                        value: `${product.avgProductionDays} days`,
+                                    },
+                                ].map((m, i) => (
+                                    <div
+                                        key={i}
+                                        className="bg-white border border-gray-200 rounded-2xl p-4"
+                                    >
+                                        <p className="text-xs text-gray-400 mb-2">
+                                            {m.label}
+                                        </p>
+
+                                        <p className="text-sm font-medium text-gray-800 leading-snug">
+                                            {m.value}
                                         </p>
                                     </div>
                                 ))}
                             </div>
-                        </div>
-                    )}
+                        )}
 
-                    {/* Shipping */}
-                    {product.shipping && (
-                        <div className="text-[13px] text-gray-500 mb-5 flex flex-col sm:flex-row gap-1 sm:gap-10 items-start">
-                            <span className="font-medium text-gray-700 shrink-0">Shipping:</span>
-                            <div>
-                                <span>{product.shipping.price}</span>
-                                <div className="text-[#e0781e] underline cursor-pointer">
-                                    {product.shipping.description}
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
+                        {/* CTA */}
+                        {/* <div className="mt-8 flex gap-3">
+                            <button className="flex-1 h-12 rounded-2xl bg-gray-900 text-white font-medium hover:opacity-90 transition">
+                                Add to Cart
+                            </button>
 
-            {/* Tabs */}
-            <div className="border border-gray-200 rounded-xl">
-                <div className="flex border-b border-gray-200 overflow-x-auto">
-                    {TABS.map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab)}
-                            className={`px-5 py-3 text-[14px] border-b-2 transition-colors whitespace-nowrap ${activeTab === tab
-                                ? "text-[#e0781e] border-[#e0781e]"
-                                : "text-gray-500 border-transparent hover:text-gray-700"
-                                }`}
-                        >
-                            {tab}
-                        </button>
-                    ))}
+                            <button className="h-12 px-5 rounded-2xl border border-gray-300 bg-white hover:bg-gray-50 transition">
+                                ♡
+                            </button>
+                        </div> */}
+                    </div>
                 </div>
 
-                <div className="p-4 md:p-6 text-[13px] leading-relaxed text-gray-700">
-                    {activeTab === "Description" && (
-                        <ul className="space-y-2">
-                            {product.description?.map((line, i) => (
-                                <li key={i} className="pb-2 border-b border-gray-100 last:border-0">
-                                    {line}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                {/* TABS */}
+                <div className="mt-12 bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
 
-                    {activeTab === "Size Guide" && product.sizes && (
-                        <>
-                            <div className="overflow-x-auto">
-                                <table className="border-collapse text-[13px] min-w-max">
-                                    <tbody>
-                                        <tr>
-                                            <td className="border border-gray-200 px-3 py-2 text-gray-500 whitespace-nowrap sticky left-0 bg-white z-10">
-                                                Size
-                                            </td>
-                                            {product.sizes.map((s) => (
-                                                <td key={s.label} className="border border-gray-200 px-3 py-2 whitespace-nowrap">
-                                                    {s.label}
-                                                </td>
-                                            ))}
-                                        </tr>
+                    {/* Tab Header */}
+                    <div className="flex border-b border-gray-200 overflow-x-auto">
+                        {TABS.map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`
+                  relative px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors
+                  ${activeTab === tab
+                                        ? "text-[#e0781e]"
+                                        : "text-gray-500 hover:text-gray-800"}
+                `}
+                            >
+                                {tab}
 
-                                        {Array.from(
-                                            new Set(product.sizes.flatMap((s) => Object.keys(s).filter((k) => k !== "label")))
-                                        ).map((field) => (
-                                            <tr key={field}>
-                                                <td className="border border-gray-200 px-3 py-2 text-gray-500 whitespace-nowrap sticky left-0 bg-white z-10">
-                                                    {SIZE_FIELD_LABELS[field] ??
-                                                        field.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase())}
-                                                </td>
-                                                {product.sizes!.map((s) => (
-                                                    <td key={s.label} className="border border-gray-200 px-3 py-2 whitespace-nowrap">
-                                                        {s[field] ?? "—"}
-                                                    </td>
-                                                ))}
-                                            </tr>
+                                {activeTab === tab && (
+                                    <motion.div
+                                        layoutId="active-tab"
+                                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#e0781e]"
+                                    />
+                                )}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-5 md:p-7">
+
+                        <AnimatePresence mode="wait">
+
+                            {/* DESCRIPTION */}
+                            {activeTab === "Description" && (
+                                <motion.div
+                                    key="desc"
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                >
+                                    <ul className="space-y-4">
+                                        {product.description?.map((line, i) => (
+                                            <li
+                                                key={i}
+                                                className="pb-4 border-b border-gray-100 last:border-0 text-gray-700 leading-relaxed"
+                                            >
+                                                {line}
+                                            </li>
                                         ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                                    </ul>
+                                </motion.div>
+                            )}
 
-                            <p className="text-[12px] text-gray-400 mt-3">
-                                This size guide shows product measurements taken when products are laid flat.
-                                Actual product measurements may vary by up to 1.
-                            </p>
-                        </>
-                    )}
+                            {/* SIZE GUIDE */}
+                            {activeTab === "Size Guide" && product.sizes && (
+                                <motion.div
+                                    key="size"
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                >
+                                    <div className="overflow-x-auto rounded-2xl border border-gray-200">
+                                        <table className="min-w-full text-sm">
+                                            <tbody>
+
+                                                <tr className="bg-gray-50">
+                                                    <td className="sticky left-0 z-10 bg-gray-50 border-b border-r border-gray-200 px-4 py-3 font-medium">
+                                                        Size
+                                                    </td>
+
+                                                    {product.sizes.map((s) => (
+                                                        <td
+                                                            key={s.label}
+                                                            className="border-b border-gray-200 px-4 py-3 font-medium whitespace-nowrap"
+                                                        >
+                                                            {s.label}
+                                                        </td>
+                                                    ))}
+                                                </tr>
+
+                                                {Array.from(
+                                                    new Set(
+                                                        product.sizes.flatMap((s) =>
+                                                            Object.keys(s).filter(
+                                                                (k) => k !== "label"
+                                                            )
+                                                        )
+                                                    )
+                                                ).map((field) => (
+                                                    <tr key={field}>
+                                                        <td className="sticky left-0 z-10 bg-white border-r border-b border-gray-200 px-4 py-3 text-gray-500 whitespace-nowrap">
+                                                            {SIZE_FIELD_LABELS[field] ??
+                                                                field
+                                                                    .replace(/([A-Z])/g, " $1")
+                                                                    .replace(/^./, (c) =>
+                                                                        c.toUpperCase()
+                                                                    )}
+                                                        </td>
+
+                                                        {product.sizes!.map((s) => (
+                                                            <td
+                                                                key={s.label}
+                                                                className="border-b border-gray-200 px-4 py-3 whitespace-nowrap"
+                                                            >
+                                                                {s[field] ?? "—"}
+                                                            </td>
+                                                        ))}
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <p className="text-xs text-gray-400 mt-4">
+                                        Actual product measurements may vary by up to 1 inch.
+                                    </p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
         </div>

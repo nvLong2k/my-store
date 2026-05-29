@@ -51,12 +51,14 @@ export type Product = {
     };
     exclusiveRegion?: string;
     bulkPricing?: BulkTier[];
+    type?: string;
 };
 
 export const products: Product[] = [
     {
         id: 1,
         name: "1st Gen 40oz Colorful Car Cup | 304 Stainless Steel（Made in USA）",
+        type: "thermoCup",
         price: 14.00,
         originalPrice: 17.50,
         discount: 20,
@@ -96,6 +98,7 @@ export const products: Product[] = [
     {
         id: 2,
         name: "40oz Car Insulated Cup（Black） | Stainless Steel (Made in USA)",
+        type: "thermoCup",
         price: 12.48,
         originalPrice: 15.60,
         discount: 20,
@@ -134,6 +137,7 @@ export const products: Product[] = [
     {
         id: 3,
         name: "40oz Car Insulated Cup（White） | Stainless Steel (Made in USA)",
+        type: "thermoCup",
         price: 12.48,
         originalPrice: 15.60,
         discount: 20,
@@ -173,6 +177,7 @@ export const products: Product[] = [
     {
         id: 4,
         name: "Outdoor Travel Carry Tumbler (600ml/20oz) | Stainless Steel 304",
+        type: "thermoCup",
         price: 8.72,
         originalPrice: 10.90,
         discount: 20,
@@ -213,6 +218,7 @@ export const products: Product[] = [
     {
         id: 5,
         name: "Vertical Single Layer Flag - Seamless Edge (120x180cm/4x6ft) | Polyester （Made in USA ）",
+        type: "flagBanner",
         price: 7.68,
         originalPrice: 9.60,
         discount: 20,
@@ -250,6 +256,7 @@ export const products: Product[] = [
     {
         id: 6,
         name: "Horizontal Single Layer Flag - Seamless Edge (120x180cm/4x6ft) | Polyester（ Made in USA）",
+        type: "flagBanner",
         price: 7.68,
         originalPrice: 9.60,
         discount: 20,
@@ -287,6 +294,7 @@ export const products: Product[] = [
     {
         id: 7,
         name: "Half-Round Flag | Polyester (Made in USA)",
+        type: "flagBanner",
         price: 5.20,
         originalPrice: 6.51,
         discount: 20,
@@ -328,6 +336,7 @@ export const products: Product[] = [
     {
         id: 8,
         name: "Mesh Sponge Cap | Polyester (Made in USA)",
+        type: "hat",
         price: 3.76,
         originalPrice: 4.70,
         discount: 20,
@@ -369,6 +378,7 @@ export const products: Product[] = [
     {
         id: 9,
         name: "Washed Baseball Cap (DTF) | Cotton (Made in USA）",
+        type: "hat",
         price: 3.47,
         originalPrice: 4.34,
         discount: 20,
@@ -407,6 +417,7 @@ export const products: Product[] = [
     {
         id: 10,
         name: "100% Pure Cotton Denim Heat Transfer Short Sleeve T-Shirt (230g) | Cotton",
+        type: "apparel",
         price: 7.36,
         originalPrice: 9.20,
         discount: 20,
@@ -457,6 +468,7 @@ export const products: Product[] = [
     {
         id: 11,
         name: "180g Single-sided Printed Men's T-shirt (Heat Transfer Print) | Cotton (Made in USA)",
+        type: "apparel",
         price: 4.48,
         originalPrice: 5.60,
         discount: 20,
@@ -514,6 +526,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/DO53SV_6_1.jpg"],
         isNew: true,
+        type: "apparel",
         origin: "CN",
         exclusiveRegion: "US",
         colors: [
@@ -567,6 +580,7 @@ export const products: Product[] = [
         isNew: true,
         origin: "CN",
         exclusiveRegion: "US",
+        type: "apparel",
         colors: [
             { label: "White", hex: "white" },
             { label: "Black", hex: "black" },
@@ -603,6 +617,7 @@ export const products: Product[] = [
     {
         id: 14,
         name: "11oz Mug | Ceramic (Made in USA)",
+        type: "drinkingCup",
         price: 5.44,
         originalPrice: 6.80,
         discount: 20,
@@ -642,6 +657,7 @@ export const products: Product[] = [
     {
         id: 15,
         name: "Two-Tone Mug (15oz) (Multiple Colors) | Ceramic",
+        type: "drinkingCup",
         price: 4.00,
         originalPrice: 5.00,
         discount: 20,
@@ -688,6 +704,7 @@ export const products: Product[] = [
     {
         id: 16,
         name: "Classic White Mug (325ml/11oz) | Ceramic",
+        type: "drinkingCup",
         price: 2.08,
         originalPrice: 2.61,
         discount: 20,
@@ -727,6 +744,7 @@ export const products: Product[] = [
     {
         id: 17,
         name: "Round Car Air Freshener 8×8cm | Paper",
+        type: "carDecor",
         price: 1.36,
         originalPrice: 1.70,
         discount: 20,
@@ -778,6 +796,7 @@ export const products: Product[] = [
     {
         id: 18,
         name: "20oz Insulated Cup | Stainless Steel (Made in USA)",
+        type: "thermoCup",
         price: 6.79,
         originalPrice: 8.49,
         discount: 20,
@@ -817,6 +836,7 @@ export const products: Product[] = [
     {
         id: 19,
         name: "Single-Sided Printed Stained Glass Suncatcher（Flat Surface） | Glass (Made in USA）",
+        type: "homeDecor",
         price: 4.66,
         originalPrice: 5.83,
         discount: 20,
@@ -858,6 +878,7 @@ export const products: Product[] = [
     {
         id: 20,
         name: "iPhone 17 Series Silicone Cases | Silicone",
+        type: "interestingPhone",
         price: 2.40,
         originalPrice: 3.00,
         discount: 20,
@@ -913,6 +934,7 @@ export const products: Product[] = [
     {
         id: 21,
         name: "iPhone 17 Pro Max Transparent Phone Case | TPU",
+        type: "interestingPhone",
         price: 2.36,
         originalPrice: 3.29,
         discount: 20,
@@ -964,6 +986,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/DP5VGP_20_1.jpg"],
         isNew: true,
+        type: "interestingPhone",
         origin: "CN",
         colors: [
             { label: "d9faf6", hex: "#d9faf6" },
@@ -1003,6 +1026,7 @@ export const products: Product[] = [
     {
         id: 23,
         name: "iPhone 17 Air Transparent Phone Case | TPU",
+        type: "interestingPhone",
         price: 2.36,
         originalPrice: 3.29,
         discount: 20,
@@ -1048,6 +1072,7 @@ export const products: Product[] = [
     {
         id: 24,
         name: "iPhone 17 Transparent Phone Case | TPU",
+        type: "interestingPhone",
         price: 2.36,
         originalPrice: 3.29,
         discount: 20,
@@ -1093,6 +1118,7 @@ export const products: Product[] = [
     {
         id: 25,
         name: "11oz Mug | Ceramic (Made in USA)",
+        type: "drinkingCup",
         price: 4.50,
         originalPrice: 5.63,
         discount: 20,
@@ -1130,6 +1156,7 @@ export const products: Product[] = [
     {
         id: 26,
         name: "Single-Sided Printed Personalized Canvas Bag | Canvas (Made in USA)",
+        type: "canvasBag",
         price: 4.08,
         originalPrice: 5.63,
         discount: 20,
@@ -1167,6 +1194,7 @@ export const products: Product[] = [
     {
         id: 27,
         name: "20oz Insulated Cup | Stainless Steel (Made in USA)",
+        type: "thermoCup",
         price: 8.30,
         originalPrice: 10.38,
         discount: 20,
@@ -1208,6 +1236,7 @@ export const products: Product[] = [
     {
         id: 28,
         name: "Single-sided printed Painted Glass Ornament（Convex Surface） | Glass (Made in USA）",
+        type: "homeDecor",
         price: 4.66,
         originalPrice: 5.83,
         discount: 20,
@@ -1249,6 +1278,7 @@ export const products: Product[] = [
     {
         id: 29,
         name: "MaoQing Fabric Baseball Cap (DTF) | Polyester (Made in USA）",
+        type: "hat",
         price: 3.47,
         originalPrice: 4.34,
         discount: 20,
@@ -1286,6 +1316,7 @@ export const products: Product[] = [
     {
         id: 30,
         name: "Curved Brim Mesh Baseball Cap | Polyester",
+        type: "hat",
         price: 5.52,
         originalPrice: 6.90,
         discount: 20,
@@ -1325,6 +1356,7 @@ export const products: Product[] = [
     {
         id: 32,
         name: "Baseball Cap (Supports Front and Side Printing) | Cotton",
+        type: "hat",
         price: 3.84,
         originalPrice: 4.80,
         discount: 20,
