@@ -41,9 +41,9 @@ export default function ProductDetailPage({
     if (!product) notFound();
 
     const [activeTab, setActiveTab] = useState<Tab>("Description");
-    const [activeThumb, setActiveThumb] = useState(0);
-    const [activeColor, setActiveColor] = useState(0);
-    const [activeSize, setActiveSize] = useState(0);
+    const [activeThumb, setActiveThumb] = useState<number>(0);
+    const [activeColor, setActiveColor] = useState<number>(0);
+    const [activeSize, setActiveSize] = useState<number>(0);
 
     const discountPercent = useMemo(() => {
         return (
@@ -100,16 +100,13 @@ export default function ProductDetailPage({
                                     <button
                                         key={i}
                                         onClick={() => setActiveThumb(i)}
-                                        className={`
-                      relative overflow-hidden rounded-xl border transition-all duration-300 shrink-0
-                      ${activeThumb === i
-                                                ? "border-[#e0781e] scale-105 shadow-md"
-                                                : "border-gray-200 opacity-70 hover:opacity-100"}
-                    `}
+                                        className={`relative overflow-hidden rounded-xl border transition-all duration-300 shrink-0
+                                            ${activeThumb === i ? "border-[#e0781e] scale-105 shadow-md" : "border-gray-200 opacity-70 hover:opacity-100"}
+                                        `}
                                     >
                                         <Image
                                             src={img}
-                                            alt=""
+                                            alt={product.name}
                                             width={72}
                                             height={72}
                                             className="w-18 h-18 object-cover"
@@ -270,6 +267,32 @@ export default function ProductDetailPage({
                                         </p>
                                     </div>
                                 ))}
+                            </div>
+                        )}
+
+                        {/* Bulk — with tiers */}
+                        {product.bulkPricing && product.bulkPricing.length > 0 && (
+                            <div className="bg-white border border-gray-200 rounded-2xl p-4 mt-7">
+                                <p className="text-[12px] text-gray-500 font-medium mb-2">Bulk Price:</p>
+                                <div className="flex gap-4 flex-wrap">
+                                    {product.bulkPricing.map((tier, i) => (
+                                        <div key={i}>
+                                            <div className="flex items-baseline gap-1.5">
+                                                {
+                                                    tier?.price && (
+                                                        <span className="font-medium text-gray-800">${(tier.price - 1).toFixed(2)}</span>
+                                                    )
+                                                }
+                                                <span className="text-gray-400 line-through text-[12px]">
+                                                    ${tier?.realPrice?.toFixed(2)}
+                                                </span>
+                                            </div>
+                                            <p className="text-gray-400 text-[12px] mt-0.5">
+                                                {tier.maxQty ? `${tier.minQty}-${tier.maxQty}` : `${tier.minQty}+`} Pieces
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
 

@@ -1,58 +1,4 @@
-export type ColorOption = {
-    label: string;
-    hex: string;
-};
-
-export type BulkTier = {
-    minQty: number;
-    maxQty?: number;
-    price?: number;
-    realPrice?: number;
-};
-
-export type SizeOption = {
-    label: string;
-    width?: string;
-    height?: string;
-    capacity?: string;
-    diameter?: string;
-    long?: string;
-    capGirth?: string;
-    brimOfHat?: string;
-    hatHeight?: string;
-    waist?: string;
-    headCircumference?: string;
-    [key: string]: string | undefined;
-};
-
-export type ProductMeta = {
-    material?: string;
-    weight?: string;
-};
-
-export type Product = {
-    id: number;
-    name: string;
-    price: number;
-    originalPrice: number;
-    discount: number;
-    avgProductionDays: number;
-    images: string[];
-    isNew?: boolean;
-    origin?: string;
-    colors?: ColorOption[];
-    sizes?: SizeOption[];
-    meta?: ProductMeta;
-    description?: string[];
-    printGuide?: string[];
-    shipping?: {
-        price: string;
-        description: string;
-    };
-    exclusiveRegion?: string;
-    bulkPricing?: BulkTier[];
-    type?: string;
-};
+import { Product } from "../types/products";
 
 export const products: Product[] = [
     {
@@ -65,7 +11,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/87HU8L_90_1_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Pink", hex: "#f4a7b9" },
@@ -105,7 +51,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/BDJ6QF_5_1_6.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Black", hex: "black" },
@@ -144,7 +90,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/8MZ793_6_1_7.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -184,7 +130,7 @@ export const products: Product[] = [
         avgProductionDays: 3.5,
         images: ["/images/9HS9MB_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "White", hex: "white" },
         ],
@@ -225,7 +171,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/XIEFC8_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -263,7 +209,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/IGUJLU_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -301,7 +247,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/FNFTRM_6_1_6.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -343,7 +289,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/YNR4AF_315_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -385,7 +331,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/J7MZ2K_5_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Gray", hex: "gray" },
@@ -424,7 +370,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/SQ7W74_5_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Gray", hex: "gray" },
@@ -475,7 +421,7 @@ export const products: Product[] = [
         avgProductionDays: 2.5,
         images: ["/images/6I3AEU_315_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "003bff", hex: "#003bff" },
@@ -527,7 +473,7 @@ export const products: Product[] = [
         images: ["/images/DO53SV_6_1.jpg"],
         isNew: true,
         type: "apparel",
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -578,7 +524,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/MHM9CG_5_1_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         type: "apparel",
         colors: [
@@ -624,7 +570,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/LHXX6C_5_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "Black", hex: "black" },
         ],
@@ -664,7 +610,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/6GM9U8_90_1_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "Black", hex: "black" },
             { label: "f8c2cf", hex: "#f8c2cf" },
@@ -711,7 +657,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/B63UXC_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "White", hex: "white" },
         ],
@@ -751,7 +697,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/YYP4KX_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "White", hex: "white" },
         ],
@@ -803,7 +749,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/LPYSFD_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "white" },
@@ -843,7 +789,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/H79S6Z_5_1_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Black", hex: "black" },
@@ -885,7 +831,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/7ZS783_5_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Black", hex: "black" },
@@ -941,7 +887,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/FVDAYX_20_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "d9faf6", hex: "#d9faf6" },
         ],
@@ -987,7 +933,7 @@ export const products: Product[] = [
         images: ["/images/DP5VGP_20_1.jpg"],
         isNew: true,
         type: "interestingPhone",
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "d9faf6", hex: "#d9faf6" },
         ],
@@ -1033,7 +979,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/YEDSTG_20_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "d9faf6", hex: "#d9faf6" },
         ],
@@ -1079,7 +1025,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/Z8B8CX_20_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "d9faf6", hex: "#d9faf6" },
         ],
@@ -1125,7 +1071,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/DBUO8G_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "#FFFFFF" },
@@ -1163,7 +1109,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/U5UKLD_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "#FFFFFF" },
@@ -1201,7 +1147,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/Y3A7QF_6_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "White", hex: "#FFFFFF" },
@@ -1243,7 +1189,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/V44FLP_5_1_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Black", hex: "black" },
@@ -1285,7 +1231,7 @@ export const products: Product[] = [
         avgProductionDays: 1.5,
         images: ["/images/9D2GPZ_5_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         exclusiveRegion: "US",
         colors: [
             { label: "Black", hex: "black" },
@@ -1323,7 +1269,7 @@ export const products: Product[] = [
         avgProductionDays: 4,
         images: ["/images/VNS9NF_5_1.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "Black", hex: "black" },
         ],
@@ -1363,7 +1309,7 @@ export const products: Product[] = [
         avgProductionDays: 3,
         images: ["/images/9S5UXU_123_1_10.jpg"],
         isNew: true,
-        origin: "CN",
+        origin: "SALE",
         colors: [
             { label: "f4f8d9", hex: "#f4f8d9" },
             { label: "f8c2cf", hex: "#f8c2cf" },
@@ -1398,5 +1344,102 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 3.68, realPrice: 4.61 },
             { minQty: 50, price: 3.48, realPrice: 4.36 },
         ],
+    },
+    {
+        id: 33,
+        name: "11oz Personalized Two-Tone Mug | Ceramic (Made in USA）",
+        type: "drinkingCup",
+        price: 6.04,
+        originalPrice: 7.56,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/YMB6UR_90_1.jpg"],
+        isNew: true,
+        origin: "SALE",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "afc8dc", hex: "#afc8dc" },
+            { label: "f8c2cf", hex: "#f8c2cf" },
+            { label: "030a9f", hex: "#030a9f" },
+            { label: "Black", hex: "black" },
+            { label: "f2e96a", hex: "#f2e96a" },
+            { label: "808080", hex: "#808080" },
+            { label: "800080", hex: "#800080" },
+            { label: "1d364a", hex: "#1d364a" },
+            { label: "ffff00", hex: "#ffff00" },
+            { label: "ed6434", hex: "#ed6434" },
+        ],
+        sizes: [
+            { label: "One Size", width: "3.14inch/8.1cm", long: "3.8inch/9.6cm" },
+        ],
+        meta: {
+            material: "Ceramics",
+            weight: "330 g",
+        },
+        description: [
+            "Place of shipment:46595 Landing Parkway,Fremont,CA,94538",
+            "Recommended image pixels： 4429X1897px",
+            "Design description： Full-width printing",
+            "Material description： Ceramic",
+            "Product performance：",
+            "This bright white two-tone mug is made of high-quality ceramic, non-toxic and lead-free, with excellent durability and luxurious feel. The cup is equipped with a comfortable handle to ensure safety and easy grip, allowing you to easily hold and enjoy hot drinks without worrying about them slipping out of your hands. There are many colors to choose from. Suitable for hot and cold drinks at home or in an office environment, this mug is very durable and has a long service life. It can be safely placed in the microwave or dishwasher without worrying about cracking or breaking.",
+            "Applicable scenarios： Our mugs are great daily practical decorations for coaches, teachers, parents or special people in your life. They are also perfect housewarming or holiday gifts, or they may be newlywed wedding registration gifts, Halloween Christmas gifts.",
+            "Washing instructions： Hand washing is recommended",
+            "Special instructions： This size data is due to different measurement methods, and the error within 1-2cm is normal.",
+            "Tips：The images are for reference only. There are certain objective factors in the production process that may lead to slight differences between the actual product and the image, including but not limited to size, position, color difference, etc. These are normal phenomena.",
+        ],
+        shipping: {
+            price: "$3.74~$6.78",
+            description: "Shipping to the US only"
+        },
+    },
+    {
+        id: 34,
+        name: "15oz Personalized Two-Tone Mug | Ceramic (Made in USA）",
+        type: "drinkingCup",
+        price: 7.50,
+        originalPrice: 9.38,
+        discount: 20,
+        avgProductionDays: 1.5,
+        images: ["/images/LD6QK6_94_1.jpg"],
+        isNew: true,
+        origin: "SALE",
+        exclusiveRegion: "US",
+        colors: [
+            { label: "afc8dc", hex: "#afc8dc" },
+            { label: "f8c2cf", hex: "#f8c2cf" },
+            { label: "030a9f", hex: "#030a9f" },
+            { label: "Black", hex: "black" },
+            { label: "f2e96a", hex: "#f2e96a" },
+            { label: "808080", hex: "#808080" },
+            { label: "800080", hex: "#800080" },
+            { label: "1d364a", hex: "#1d364a" },
+            { label: "ffff00", hex: "#ffff00" },
+            { label: "ed6434", hex: "#ed6434" },
+            { label: "adf26e", hex: "#adf26e" },
+        ],
+        sizes: [
+            { label: "One Size", width: "3.35inch/8.5cm", long: "4.65inch/11.8cm" },
+        ],
+        meta: {
+            material: "Ceramics",
+            weight: "430 g",
+        },
+        description: [
+            "Place of shipment:46595 Landing Parkway,Fremont,CA,94538",
+            "Recommended image pixels： 4429X1897px",
+            "Design description： Full-width printing",
+            "Material description： Ceramic",
+            "Product performance：",
+            "This bright white two-tone mug is made of high-quality ceramic, non-toxic and lead-free, with excellent durability and luxurious feel. The cup is equipped with a comfortable handle to ensure safety and easy grip, allowing you to easily hold and enjoy hot drinks without worrying about them slipping out of your hands. There are many colors to choose from. Suitable for hot and cold drinks at home or in an office environment, this mug is very durable and has a long service life. It can be safely placed in the microwave or dishwasher without worrying about cracking or breaking.",
+            "Applicable scenarios： Our mugs are great daily practical decorations for coaches, teachers, parents or special people in your life. They are also perfect housewarming or holiday gifts, or they may be newlywed wedding registration gifts, Halloween Christmas gifts.",
+            "Washing instructions： Hand washing is recommended",
+            "Special instructions： This size data is due to different measurement methods, and the error within 1-2cm is normal.",
+            "Tips：The images are for reference only. There are certain objective factors in the production process that may lead to slight differences between the actual product and the image, including but not limited to size, position, color difference, etc. These are normal phenomena.",
+        ],
+        shipping: {
+            price: "$3.74~$6.78",
+            description: "Shipping to the US only"
+        },
     },
 ];

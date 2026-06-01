@@ -232,15 +232,21 @@ export default function Products() {
 
                                         {/* Badges */}
                                         <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
+                                            {product.origin && (
+                                                <span className="bg-red-600 text-white text-[11px] font-medium px-2 py-0.5 rounded-md transition-transform duration-300 group-hover:scale-105">
+                                                    {product.origin}
+                                                </span>
+                                            )}
+                                            
                                             {product.isNew && (
                                                 <span className="bg-green-500 text-white text-[11px] font-medium px-2 py-0.5 rounded-md transition-transform duration-300 group-hover:scale-105">
                                                     NEW
                                                 </span>
                                             )}
 
-                                            {product.origin && (
-                                                <span className="bg-red-600 text-white text-[11px] font-medium px-2 py-0.5 rounded-md transition-transform duration-300 group-hover:scale-105">
-                                                    {product.origin}
+                                            {product.exclusiveRegion && (
+                                                <span className="bg-blue-600 text-white text-[11px] font-medium px-2 py-0.5 rounded-md transition-transform duration-300 group-hover:scale-105">
+                                                    USA
                                                 </span>
                                             )}
                                         </div>
