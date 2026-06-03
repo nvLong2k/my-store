@@ -179,24 +179,43 @@ export default function ProductDetailPage({
                         {/* Colors */}
                         {product.colors && product.colors.length > 0 && (
                             <div className="mt-6">
-                                <p className="text-sm font-medium mb-3 text-gray-800">
-                                    Color
-                                </p>
+                                <div className="flex items-center justify-between mb-3">
+                                    <p className="text-sm font-medium text-gray-800">
+                                        Color
+                                    </p>
 
-                                <div className="flex gap-3 flex-wrap">
+                                    <span className="text-sm text-gray-500">
+                                        {product.colors[activeColor]?.label}
+                                    </span>
+                                </div>
+
+                                <div className="flex gap-4 flex-wrap">
                                     {product.colors.map((c, i) => (
                                         <button
                                             key={i}
-                                            title={c.label}
                                             onClick={() => setActiveColor(i)}
-                                            style={{ background: c.hex }}
-                                            className={`
-                        w-9 h-9 rounded-full border-4 transition-all duration-200
-                        ${activeColor === i
-                                                    ? "border-white ring-2 ring-gray-900 scale-110"
-                                                    : "border-white ring-1 ring-gray-300"}
-                      `}
-                                        />
+                                            className="flex flex-col items-center gap-2"
+                                        >
+                                            <span
+                                                className={`
+                                        w-10 h-10 rounded-full border-4 transition-all
+                                        ${activeColor === i
+                                                        ? "border-white ring-2 ring-gray-900"
+                                                        : "border-white ring-1 ring-gray-300"
+                                                    }
+                                        `}
+                                                style={{ backgroundColor: c.hex }}
+                                            />
+
+                                            <span
+                                                className={`text-xs ${activeColor === i
+                                                        ? "font-semibold text-gray-900"
+                                                        : "text-gray-500"
+                                                    }`}
+                                            >
+                                                {c.label}
+                                            </span>
+                                        </button>
                                     ))}
                                 </div>
                             </div>
@@ -224,11 +243,9 @@ export default function ProductDetailPage({
                                             key={i}
                                             onClick={() => setActiveSize(i)}
                                             className={`
-                        min-w-13 px-4 py-2 rounded-xl text-sm border transition-all duration-200
-                        ${activeSize === i
-                                                    ? "bg-gray-900 text-white border-gray-900"
-                                                    : "bg-white border-gray-300 hover:border-gray-900"}
-                      `}
+                                                min-w-13 px-4 py-2 rounded-xl text-sm border transition-all duration-200
+                                                ${activeSize === i ? "bg-gray-900 text-white border-gray-900" : "bg-white border-gray-300 hover:border-gray-900"}
+                                            `}
                                         >
                                             {s.label}
                                         </button>
@@ -267,6 +284,15 @@ export default function ProductDetailPage({
                                         </p>
                                     </div>
                                 ))}
+                            </div>
+                        )}
+
+                        {/* Bulk — no tiers */}
+                        {!product.bulkPricing && (
+                            <div className="bg-white border border-gray-200 rounded-2xl p-4 mt-7">
+                                <p className="text-[12px] text-gray-500 font-medium mb-1">Bulk Price</p>
+                                <p className="line-through text-gray-600">${product.originalPrice.toFixed(2)}</p>
+                                <p className="text-gray-400 text-[12px]">1+ Pieces</p>
                             </div>
                         )}
 
@@ -319,11 +345,9 @@ export default function ProductDetailPage({
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`
-                  relative px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors
-                  ${activeTab === tab
-                                        ? "text-[#e0781e]"
-                                        : "text-gray-500 hover:text-gray-800"}
-                `}
+                                    relative px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors
+                                    ${activeTab === tab ? "text-[#e0781e]" : "text-gray-500 hover:text-gray-800"}
+                                `}
                             >
                                 {tab}
 
