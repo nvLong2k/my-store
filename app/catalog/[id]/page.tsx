@@ -77,8 +77,8 @@ export default function ProductPage({
                             <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
                                 Image Album
                             </p>
-                            <div className="grid grid-cols-5 gap-1.5">
-                                {product.images.map((src, i) => (
+                            <div className="grid grid-cols-2 gap-1.5">
+                                {product.imageAlbum.map((src, i) => (
                                     <button
                                         key={i}
                                         onClick={() => setActiveImage(i)}

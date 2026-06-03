@@ -6,6 +6,9 @@ export const catalogProducts: CatalogProduct[] = [
     id: 1,
     name: "Embroidery Snapback Cap",
     images: ["/images/1779728252673_pasted-image-1779703053088.png"],
+    imageAlbum: [
+      "/images/1779788448596_pasted-image-1779763248668.png",
+    ],
     productCode: "P162",
     sku: "ESC",
     material: "kaki",

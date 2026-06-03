@@ -31,6 +31,7 @@ export interface CatalogProduct {
   id: number;
   name: string;
   images: string[];
+  imageAlbum: string[];
   productCode: string;
   sku: string;
   material: string;
