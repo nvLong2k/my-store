@@ -31,7 +31,7 @@ export interface CatalogProduct {
   id: number;
   name: string;
   images: string[];
-  imageAlbum: string[];
+  imageAlbum?: string[];
   productCode: string;
   sku: string;
   material: string;
@@ -40,4 +40,5 @@ export interface CatalogProduct {
   sizes: string[];
   colors: ProductColor[];
   variations: Variation[];
+  imageDescription?: string;
 }

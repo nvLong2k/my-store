@@ -1,5 +1,10 @@
 "use client";
 
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+
+import "yet-another-react-lightbox/styles.css";
+
 import { catalogProducts } from "@/src/mock/catalog";
 import { notFound } from "next/navigation";
 import { use, useState } from "react";
@@ -26,9 +31,10 @@ export default function ProductPage({
 
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
-    const [sizeError, setSizeError] = useState(false);
-    const [colorError, setColorError] = useState(false);
-    const [activeImage, setActiveImage] = useState(0);
+    const [sizeError, setSizeError] = useState<boolean>(false);
+    const [colorError, setColorError] = useState<boolean>(false);
+    const [activeImage, setActiveImage] = useState<number>(0);
+    const [openLightbox, setOpenLightbox] = useState<boolean>(false);
 
     const v = product.variations[0];
     const shippingEntries = Object.entries(v.shipping).filter(
@@ -37,10 +43,10 @@ export default function ProductPage({
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-800">
-            <div className="flex flex-col lg:flex-row min-h-screen max-w-7xl mx-auto py-10">
+            <div className="flex flex-col lg:flex-row max-w-7xl mx-auto py-10">
 
                 {/* ── Sidebar ── */}
-                <aside className="w-full lg:w-72 xl:w-80 bg-white border rounded-xl border-gray-200 shrink-0 p-6 flex flex-col gap-5">
+                <aside className="w-full lg:w-72 xl:w-80 bg-white border rounded-xl border-gray-200 shrink-0 p-6 flex flex-col gap-5 h-fit">
 
                     {/* Meta */}
                     <div className="space-y-1">
@@ -59,11 +65,16 @@ export default function ProductPage({
                     {/* Hero */}
                     <div className="rounded-xl overflow-hidden bg-gray-100 aspect-square">
                         {product.images?.[activeImage] ? (
-                            <img
-                                src={product.images[activeImage]}
-                                alt={product.name}
-                                className="w-full h-full object-cover"
-                            />
+                            <button
+                                type="button"
+                                className="w-full h-full cursor-zoom-in"
+                            >
+                                <img
+                                    src={product.images[activeImage]}
+                                    alt={product.name}
+                                    className="w-full h-full object-cover"
+                                />
+                            </button>
                         ) : (
                             <div className="w-full h-full flex items-center justify-center text-gray-300 text-sm">
                                 No image
@@ -78,10 +89,13 @@ export default function ProductPage({
                                 Image Album
                             </p>
                             <div className="grid grid-cols-2 gap-1.5">
-                                {product.imageAlbum.map((src, i) => (
+                                {product.imageAlbum?.map((src, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setActiveImage(i)}
+                                        onClick={() => {
+                                            setActiveImage(i);
+                                            setOpenLightbox(true);
+                                        }}
                                         className={`rounded-md overflow-hidden border-2 transition-colors cursor-pointer ${activeImage === i
                                             ? "border-blue-500"
                                             : "border-transparent hover:border-blue-300"
@@ -139,10 +153,10 @@ export default function ProductPage({
                                         setColorError(false);
                                     }}
                                     className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all cursor-pointer ${selectedColor === c.label
-                                            ? "border-blue-500 bg-blue-50"
-                                            : colorError
-                                                ? "border-red-400"
-                                                : "border-gray-200 hover:border-blue-300"
+                                        ? "border-blue-500 bg-blue-50"
+                                        : colorError
+                                            ? "border-red-400"
+                                            : "border-gray-200 hover:border-blue-300"
                                         }`}
                                 >
                                     <span
@@ -229,7 +243,18 @@ export default function ProductPage({
                             Description
                         </h2>
                         <div className="bg-white rounded-xl border border-gray-200 p-5">
-                            <p className="text-sm italic text-gray-300 mb-4">No description available</p>
+                            {
+                                product.imageDescription ?
+                                    <div className="mb-4">
+                                        <img
+                                            src={product.imageDescription}
+                                            alt={`${product.name} description`}
+                                            className="w-full rounded-md object-cover"
+                                        />
+                                    </div>
+                                    : <p className="text-sm italic text-gray-300 mb-4">No description available</p>
+                            }
+
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">
@@ -257,6 +282,19 @@ export default function ProductPage({
 
                 </main>
             </div>
+
+            {
+                product.imageAlbum && product.imageAlbum?.length > 0 &&
+                <Lightbox
+                    open={openLightbox}
+                    close={() => setOpenLightbox(false)}
+                    index={activeImage}
+                    plugins={[Zoom]}
+                    slides={product.imageAlbum.map((src) => ({
+                        src,
+                    }))}
+                />
+            }
         </div>
     );
 }
