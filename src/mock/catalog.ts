@@ -464,7 +464,7 @@ export const catalogProducts: CatalogProduct[] = [
   {
     id: 8,
     name: "Embroidered Name Hoop",
-    images: ["/images/1779439632218_pasted-image-1779414429006.png"],
+    images: ["/images/1779294290929_pasted-image-1779269091058.png"],
     productCode: "P152",
     sku: "ENH",
     material: "FOAM",
