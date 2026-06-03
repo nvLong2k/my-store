@@ -38,7 +38,8 @@ export interface CatalogProduct {
   category: string;
   printPositions: string[];
   sizes: string[];
-  colors: ProductColor[];
+  colors?: ProductColor[];
   variations: Variation[];
   imageDescription?: string;
+  description?: string;
 }

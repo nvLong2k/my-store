@@ -304,4 +304,304 @@ export const catalogProducts: CatalogProduct[] = [
     ],
     imageDescription: "/images/1779721252425_image.png",
   },
+  {
+    id: 5,
+    name: "Embroidery Snapback Cap",
+    images: ["/images/1779729322378_pasted-image-1779704122941.png"],
+    imageAlbum: [
+      "/images/1779729334682_pasted-image-1779704135271.png",
+    ],
+    productCode: "P157",
+    sku: "EBC",
+    material: "kaki",
+    category: "SẢN PHẨM THÊU (EMBROIDERY)",
+    printPositions: ["Center", "Left", "Right"],
+    sizes: ["onesize"],
+    colors: [
+      { label: "Black",         hex: "#2e3b4a" },
+      { label: "Navy",          hex: "#1a2a4e" },
+      { label: "Sand",          hex: "#d4b7a2" },
+      { label: "White",         hex: "#ffffff" },
+      { label: "Light_Blue",    hex: "#45a0ff" },
+      { label: "Red",        hex: "#ff0000" },
+    ],
+    variations: [
+      {
+        size: "onesize",
+        sku: "ESC_ONESIZE",
+        weight: "210g",
+        price: 6.5,
+        shipping: {
+          fastUS:         { fee: 8.86, total: 15.36, days: "4-9 business days" },
+          tiktokUK:       { fee: 7.57, total: 14.07 },
+          shipByTiktokUS: { fee: 5.1,  total: 11.6  },
+          nonShip:        { fee: 0,    total: 6.5   },
+          epacketUS:      { fee: 7.93, total: 14.43, days: "7-12 business days" },
+          shippingOutsideUS: { fee: 14.31, total: 20.81 },
+          shippingToUK: { fee: 10.55, total: 17.05 },
+          shippingToCA: { fee: 12.75, total: 19.25 },
+        },
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "EMBROIDERY TRUCKER FOAM CAP",
+    images: ["/images/1779447073022_pasted-image-1779421873328.png"],
+    imageAlbum: [
+      "/images/1779894131772_pasted-image-1779868931662.png",
+    ],
+    productCode: "P155",
+    sku: "ETFC",
+    material: "FOAM",
+    category: "SẢN PHẨM THÊU (EMBROIDERY)",
+    printPositions: ["Center", "Left", "Right"],
+    sizes: ["onesize"],
+    colors: [
+      { label: "Black",         hex: "#2e3b4a" },
+      { label: "Red",        hex: "#ff0000" },
+      { label: "white_black",          hex: "#f5f5f4" },
+      { label: "White_red",          hex: "#2e3b4a" },
+      { label: "Royal_blue",         hex: "#866329" },
+      { label: "white_royal_blue",    hex: "#45a0ff" },
+      { label: "white_red_royal_blue",        hex: "#ff0000" },
+    ],
+    variations: [
+      {
+        size: "onesize",
+        sku: "ETFC_ONE SIZE",
+        weight: "210g",
+        price: 6.5,
+        shipping: {
+          fastUS:         { fee: 8.86, total: 15.36, days: "4-9 business days" },
+          tiktokUK:       { fee: 7.57, total: 14.07 },
+          shipByTiktokUS: { fee: 5.1,  total: 11.6  },
+          nonShip:        { fee: 0,    total: 6.5   },
+          epacketUS:      { fee: 7.93, total: 14.43, days: "7-12 business days" },
+          shippingOutsideUS: { fee: 14.31, total: 20.81 },
+          shippingToUK: { fee: 10.55, total: 17.05 },
+          shippingToCA: { fee: 12.75, total: 19.25 },
+        },
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "EMBROIDERY TOTE BAG",
+    images: ["/images/1779439632218_pasted-image-1779414429006.png"],
+    imageAlbum: [
+      "/images/1779439650105_pasted-image-1779414447039.png",
+    ],
+    productCode: "P154",
+    sku: "ETFC",
+    material: "FOAM",
+    category: "SẢN PHẨM THÊU (EMBROIDERY)",
+    printPositions: ["Center", "Left", "Right"],
+    sizes: ["19 x 12.5 x 5.5"],
+    colors: [
+      { label: "Coral_sorbet", hex: "#e995de" },
+      { label: "Powder_Blue", hex: "#3cd3a5" },
+      { label: "Purple", hex: "#98329a" },
+      { label: "Green_pink", hex: "#0daf84" },
+      { label: "Red_natural", hex: "#931a1a" },
+      { label: "Green_white", hex: "#319b72" },
+      { label: "Pink_Red", hex: "#d80eb3" },
+      { label: "Dark_Green_Pink", hex: "#0b2217" },
+      { label: "Pink_off_white", hex: "#c785be" },
+      { label: "Orange_pink", hex: "#d43811" },
+      { label: "Blue_pink", hex: "#da4310" },
+      { label: "Dark_pink_bright_pink", hex: "#ac0c24" },
+      { label: "Black_grey", hex: "#19191a" },
+      { label: "Yellow_white", hex: "#f0b400" },
+      { label: "Purple_white", hex: "#7a7fff" },
+      { label: "Multi_pastel_ligh_blue", hex: "#7a7fff" },
+      { label: "Light_bue", hex: "#45a0ff" },
+    ],
+    variations: [
+      {
+        size: "19 x 12.5 x 5.5",
+        sku: "ETFC_19 x 12.5 x 5.5",
+        weight: "250g",
+        price: 8.5,
+        shipping: {
+          fastUS:         { fee: 9.41, total: 17.41, days: "4-9 business days" },
+          tiktokUK:       { fee: 8.19, total: 16.69 },
+          shipByTiktokUS: { fee: 5.32,  total: 13.82 },
+          nonShip:        { fee: 0,    total: 6.5   },
+          epacketUS:      { fee: 8.49, total: 16.99, days: "7-12 business days" },
+          shippingOutsideUS: { fee: 14.59, total: 23.09 },
+          shippingToUK: { fee: 11.49, total: 19.99 },
+          shippingToCA: { fee: 12.99, total: 21.49 },
+        },
+      },
+    ],
+      description: `
+        ✨ Details:
+        Durable canvas tote
+        Lightweight yet sturdy for daily use
+        Perfect size for books, beach essentials, and more
+        Neutral aesthetic with a soft coastal vibe
+
+        Product Features
+        • 100% heavy-weight canvas for durability
+        • Flat-corner construction for a slim, structured profile
+        • Self-fabric carrying handles with reinforced stitching
+
+        📐 SIZE & PRODUCT DETAILS
+        • Size: 19 inches × 12.5 inches × 5.5 inches
+        • Handle drop: Approx. 10 inches
+
+        • Color: 16 colors as mockup
+        • Material: Durable tote bag, suitable for daily use
+        • Design: High-quality embroidery
+        • Lightweight, reusable, and easy to carry for shopping or travel
+
+        ✧ PERSONALIZATION REQUIRED ✧
+        ⚠️ This item is personalized and made to order.
+        Personalization details are required to complete your order.
+          `,
+  },
+  {
+    id: 8,
+    name: "Embroidered Name Hoop",
+    images: ["/images/1779439632218_pasted-image-1779414429006.png"],
+    productCode: "P152",
+    sku: "ENH",
+    material: "FOAM",
+    category: "SẢN PHẨM THÊU (EMBROIDERY)",
+    printPositions: ["Center", "Left", "Right"],
+    sizes: [" 4.7 x 6.0 ( oval) ", " 6.7 x 7.5  ( oval) ", " 7.1 x 9.8 ( oval) ", " 8.7 x 11.4 ( oval) ", "6\" (circle)", "8\" (circle)", "10\" (circle)",],
+    variations: [
+  {
+    size: "4.7 x 6.0 ( oval)",
+    sku: "ENH_4.7 X 6.0 ( OVAL)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+  {
+    size: "6.7 x 7.5 ( oval)",
+    sku: "ENH_6.7 X 7.5 ( OVAL)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+  {
+    size: "7.1 x 9.8 ( oval)",
+    sku: "ENH_7.1 X 9.8 ( OVAL)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+  {
+    size: "8.7 x 11.4 ( oval)",
+    sku: "ENH_8.7 X 11.4 ( OVAL)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+  {
+    size: "6\" ( circle)",
+    sku: "ENH_6\" ( CIRCLE)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+  {
+    size: "8\" ( circle)",
+    sku: "ENH_8\" ( CIRCLE)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+  {
+    size: "10\" ( circle)",
+    sku: "ENH_10\" ( CIRCLE)",
+    weight: "0g",
+    price: 0,
+    shipping: {
+      fastUS: { fee: 5.86, total: 5.86, days: "4-9 business days" },
+      tiktokUK: { fee: 4.62, total: 4.62 },
+      shipByTiktokUS: { fee: 2.78, total: 2.78 },
+      nonShip: { fee: 0, total: 0 },
+      epacketUS: { fee: 5.07, total: 5.07, days: "7-12 business days" },
+      shippingOutsideUS: { fee: 12.94, total: 12.94 },
+      shippingToUK: { fee: 7.25, total: 7.25 },
+      shippingToCA: { fee: 11.42, total: 11.42 },
+    },
+  },
+],
+    description: `
+        Personalized Baby Name Sign, Whale Nursery Decor, Custom Embroidery Hoop, Baby Gift, Newborn Name Sign, Baby Shower Gift, Nursery Wall Art.
+      🌟 What’s Included
+      ✔ Custom embroidered name
+      ✔canvas fabric + high-quality embroidery thread
+      ✔ Oval wood-look hoop: 4,7 x 6,0". 6,0 x 7,5", 7,1 x 9,8", 8,7 x 11,4"
+
+      ✔ circle wood-look hoop: 6", 8", 10".
+      ✔ Ready to hang with wood-look hoop frame
+      ✔ Perfect gift for baby rooms, newborn keepsakes or photo props
+
+      🎀 Gift Ideas
+      • Baby birth announcement
+      • Nursery wall decoration
+      • First birthday or baptism keepsake
+      • Baby shower gift for parents-to-be
+      • Heirloom décor for a storybook-style room
+          `,
+  },
 ];

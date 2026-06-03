@@ -83,7 +83,7 @@ export default function ProductPage({
                     </div>
 
                     {/* Album */}
-                    {product.images.length > 0 && (
+                    {product.imageAlbum && product.imageAlbum.length > 0 && (
                         <div>
                             <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
                                 Image Album
@@ -139,41 +139,45 @@ export default function ProductPage({
                     </div>
 
                     {/* Colors — dùng product.colors trực tiếp, hex nằm trong từng sản phẩm */}
-                    <div>
-                        <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
-                            Colors
-                        </p>
-                        <div className="flex flex-wrap gap-3">
-                            {product.colors.map((c) => (
-                                <button
-                                    key={c.label}
-                                    title={c.label}
-                                    onClick={() => {
-                                        setSelectedColor(c.label);
-                                        setColorError(false);
-                                    }}
-                                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all cursor-pointer ${selectedColor === c.label
-                                        ? "border-blue-500 bg-blue-50"
-                                        : colorError
-                                            ? "border-red-400"
-                                            : "border-gray-200 hover:border-blue-300"
-                                        }`}
-                                >
-                                    <span
-                                        style={{ backgroundColor: c.hex }}
-                                        className="w-5 h-5 rounded-full border border-gray-300 shrink-0"
-                                    />
+                    {
+                        product.colors && (
+                            <div>
+                                <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
+                                    Colors
+                                </p>
+                                <div className="flex flex-wrap gap-3">
+                                    {product.colors?.map((c) => (
+                                        <button
+                                            key={c.label}
+                                            title={c.label}
+                                            onClick={() => {
+                                                setSelectedColor(c.label);
+                                                setColorError(false);
+                                            }}
+                                            className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all cursor-pointer ${selectedColor === c.label
+                                                ? "border-blue-500 bg-blue-50"
+                                                : colorError
+                                                    ? "border-red-400"
+                                                    : "border-gray-200 hover:border-blue-300"
+                                                }`}
+                                        >
+                                            <span
+                                                style={{ backgroundColor: c.hex }}
+                                                className="w-5 h-5 rounded-full border border-gray-300 shrink-0"
+                                            />
 
-                                    <span className="text-sm text-gray-700">
-                                        {c.label.replace(/_/g, " ")}
-                                    </span>
-                                </button>
-                            ))}
-                        </div>
-                        {colorError && !selectedColor && (
-                            <p className="text-xs text-red-500 mt-1">Please select a color</p>
-                        )}
-                    </div>
+                                            <span className="text-sm text-gray-700">
+                                                {c.label.replace(/_/g, " ")}
+                                            </span>
+                                        </button>
+                                    ))}
+                                </div>
+                                {colorError && !selectedColor && (
+                                    <p className="text-xs text-red-500 mt-1">Please select a color</p>
+                                )}
+                            </div>
+                        )
+                    }
                 </aside>
 
                 {/* ── Main ── */}
@@ -212,8 +216,8 @@ export default function ProductPage({
                                             ) as [string, { fee: number; total: number }][];
                                             return (
                                                 <tr key={i} className="hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0">
-                                                    <td className="px-4 py-3 text-gray-700">{variation.size}</td>
-                                                    <td className="px-4 py-3 font-mono text-xs text-gray-600">{variation.sku}</td>
+                                                    <td className="px-4 py-3 text-gray-700 whitespace-nowrap">{variation.size}</td>
+                                                    <td className="px-4 py-3 font-mono text-xs text-gray-600 whitespace-nowrap">{variation.sku}</td>
                                                     <td className="px-4 py-3 text-gray-600">{variation.weight}</td>
                                                     <td className="px-4 py-3 text-right font-mono font-semibold text-[#27ae60]">
                                                         ${variation.price.toFixed(1)}
@@ -244,15 +248,29 @@ export default function ProductPage({
                         </h2>
                         <div className="bg-white rounded-xl border border-gray-200 p-5">
                             {
-                                product.imageDescription ?
-                                    <div className="mb-4">
-                                        <img
-                                            src={product.imageDescription}
-                                            alt={`${product.name} description`}
-                                            className="w-full rounded-md object-cover"
-                                        />
-                                    </div>
-                                    : <p className="text-sm italic text-gray-300 mb-4">No description available</p>
+                                product.imageDescription &&
+                                <div className="mb-4">
+                                    <img
+                                        src={product.imageDescription}
+                                        alt={`${product.name} description`}
+                                        className="w-full rounded-md object-cover"
+                                    />
+                                </div>
+
+                            }
+
+                            {
+                                product.description &&
+                                <p className="text-sm text-gray-700 whitespace-pre-line mb-5">
+                                    {product.description}
+                                </p>
+                            }
+
+                            {
+                                !product.imageDescription && !product.description &&
+                                <p className="text-sm text-gray-400 italic">
+                                    No description available.
+                                </p>
                             }
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
