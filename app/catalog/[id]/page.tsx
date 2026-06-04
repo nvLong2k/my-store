@@ -35,6 +35,11 @@ export default function ProductPage({
     const [colorError, setColorError] = useState<boolean>(false);
     const [activeImage, setActiveImage] = useState<number>(0);
     const [openLightbox, setOpenLightbox] = useState<boolean>(false);
+    const tempDesignImage = "/images/2aOboQawTuDGi85yGHXYyvUHmShkZRjJWxtWtojg.jpg";
+    const lightboxSlides = [
+        { src: tempDesignImage, title: "Temp Design" },
+        ...(product.imageAlbum ?? []).map((src) => ({ src })),
+    ];
 
     const v = product.variations[0];
     const shippingEntries = Object.entries(v.shipping).filter(
@@ -50,9 +55,12 @@ export default function ProductPage({
 
                     {/* Meta */}
                     <div className="space-y-1">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-blue-500 leading-snug">
-                            {product.name}
-                        </p>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm text-gray-500">Name</span>
+                            <p className="text-xs font-semibold tracking-widest uppercase text-blue-500 leading-snug">
+                                {product.name}
+                            </p>
+                        </div>
                         <p className="text-sm text-gray-500">
                             Product Code{" "}
                             <span className="text-blue-500 font-medium">{product.productCode}</span>
@@ -82,6 +90,27 @@ export default function ProductPage({
                         )}
                     </div>
 
+                    <div>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
+                            Temp design
+                        </p>
+                        <div className="grid grid-cols-2 gap-1.5">
+                            <button
+                                onClick={() => {
+                                    setActiveImage(0);
+                                    setOpenLightbox(true);
+                                }}
+                                className={`rounded-md overflow-hidden border-2 transition-colors cursor-pointer`}
+                            >
+                                <img
+                                    src={tempDesignImage}
+                                    alt="Image temp"
+                                    className="w-full aspect-square object-cover"
+                                />
+                            </button>
+                        </div>
+                    </div>
+
                     {/* Album */}
                     {product.imageAlbum && product.imageAlbum.length > 0 && (
                         <div>
@@ -93,7 +122,7 @@ export default function ProductPage({
                                     <button
                                         key={i}
                                         onClick={() => {
-                                            setActiveImage(i);
+                                            setActiveImage(i + 1);
                                             setOpenLightbox(true);
                                         }}
                                         className={`rounded-md overflow-hidden border-2 transition-colors cursor-pointer ${activeImage === i
@@ -121,7 +150,10 @@ export default function ProductPage({
                             {product.sizes.map((s) => (
                                 <button
                                     key={s}
-                                    onClick={() => { setSelectedSize(s); setSizeError(false); }}
+                                    onClick={() => {
+                                        setSelectedSize(s);
+                                        setSizeError(false);
+                                    }}
                                     className={`px-4 py-1.5 rounded-md border text-sm font-medium transition-colors cursor-pointer ${selectedSize === s
                                         ? "border-blue-500 bg-blue-50 text-blue-600"
                                         : sizeError
@@ -248,6 +280,13 @@ export default function ProductPage({
                         </h2>
                         <div className="bg-white rounded-xl border border-gray-200 p-5">
                             {
+                                product.description &&
+                                <p className="text-sm text-gray-700 whitespace-pre-line mb-5 leading-7 -mt-8">
+                                    {product.description}
+                                </p>
+                            }
+
+                            {
                                 product.imageDescription &&
                                 <div className="mb-4">
                                     <img
@@ -260,15 +299,8 @@ export default function ProductPage({
                             }
 
                             {
-                                product.description &&
-                                <p className="text-sm text-gray-700 whitespace-pre-line mb-5">
-                                    {product.description}
-                                </p>
-                            }
-
-                            {
                                 !product.imageDescription && !product.description &&
-                                <p className="text-sm text-gray-400 italic">
+                                <p className="text-sm text-gray-400 italic mb-2">
                                     No description available.
                                 </p>
                             }
@@ -301,18 +333,13 @@ export default function ProductPage({
                 </main>
             </div>
 
-            {
-                product.imageAlbum && product.imageAlbum?.length > 0 &&
-                <Lightbox
-                    open={openLightbox}
-                    close={() => setOpenLightbox(false)}
-                    index={activeImage}
-                    plugins={[Zoom]}
-                    slides={product.imageAlbum.map((src) => ({
-                        src,
-                    }))}
-                />
-            }
+            <Lightbox
+                open={openLightbox}
+                close={() => setOpenLightbox(false)}
+                index={activeImage}
+                plugins={[Zoom]}
+                slides={lightboxSlides}
+            />
         </div>
     );
 }

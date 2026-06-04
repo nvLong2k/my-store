@@ -1,5 +1,5 @@
-import Products from "@/src/components/product";
+import Catalog from "@/src/components/catalog";
 
 export default function Page() {
-    return <Products />
+    return <Catalog />
 }

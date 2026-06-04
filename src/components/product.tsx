@@ -2,213 +2,47 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useMemo, useState } from "react";
 import { products } from "../mock/products";
 import { catalogProducts } from "../mock/catalog";
 
-const CATEGORY_FILTERS = [
-    "All",
-    "Hat",
-    "Apparel",
-    "Interesting Phones",
-    "Thermo Cups",
-    "Drinking Cups",
-    "Home Decor",
-    "Flags & Banners",
-    "Car Decor",
-    "Canvas Bags",
-] as const;
-
-const REGION_FILTERS = ["Made in USA", "Global"] as const;
-
-type CategoryFilter = (typeof CATEGORY_FILTERS)[number];
-type RegionFilter = (typeof REGION_FILTERS)[number] | null;
-
 export default function Products() {
-    const [activeCategory, setActiveCategory] = useState<CategoryFilter>("All");
-    const [activeRegion, setActiveRegion] = useState<RegionFilter>(null);
-    const [search, setSearch] = useState<string>("");
-
-    const filtered = useMemo(() => {
-        return products.filter((p) => {
-            const matchCategory =
-                activeCategory === "All" ||
-                (activeCategory === "Interesting Phones" && p.type === "interestingPhone") ||
-                (activeCategory === "Thermo Cups" && p.type === "thermoCup") ||
-                (activeCategory === "Drinking Cups" && p.type === "drinkingCup") ||
-                (activeCategory === "Hat" && p.type === "hat") ||
-                (activeCategory === "Apparel" && p.type === "apparel") ||
-                (activeCategory === "Home Decor" && p.type === "homeDecor") ||
-                (activeCategory === "Flags & Banners" && p.type === "flagBanner") ||
-                (activeCategory === "Car Decor" && p.type === "carDecor") ||
-                (activeCategory === "Canvas Bags" && p.type === "canvasBag");
-
-            const matchRegion =
-                activeRegion === null ||
-                (activeRegion === "Made in USA" && p.exclusiveRegion === "US") ||
-                (activeRegion === "Global" && p.exclusiveRegion !== "US");
-
-            const matchSearch = p.name.toLowerCase().includes(search.toLowerCase());
-
-            if (search.trim() !== "") return matchSearch;
-
-            return matchCategory && matchRegion;
-        });
-    }, [activeCategory, activeRegion, search]);
-
     return (
         <div className="max-w-7xl mx-auto px-4 py-6">
-            <div className="grid grid-cols-12 gap-6">
-                {/* Desktop Sidebar */}
-                <aside className="hidden md:block md:col-span-3">
-                    <div className="sticky top-6 border border-gray-200 rounded-2xl bg-white p-5">
-                        {/* Search */}
-                        <div>
-                            <h2 className="text-sm font-semibold text-gray-900 mb-2">
-                                Search
-                            </h2>
-
-                            <input
-                                type="text"
-                                placeholder="Search products..."
-                                value={search}
-                                onChange={(e) =>
-                                    setSearch(e.target.value)
-                                }
-                                className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-black"
-                            />
-                        </div>
-
-                        {/* Categories */}
-                        <div className="mt-6">
-                            <h2 className="text-sm font-semibold text-gray-900 mb-2">
-                                Categories
-                            </h2>
-
-                            <div className="flex flex-col gap-2">
-                                {CATEGORY_FILTERS.map((filter) => (
-                                    <button
-                                        key={filter}
-                                        onClick={() => {
-                                            setActiveCategory(filter)
-                                            setActiveRegion(null)
-                                            setSearch("")
-                                        }}
-                                        className={`text-left px-3 py-2 rounded-xl text-sm transition-colors ${activeCategory === filter
-                                            ? "bg-black text-white"
-                                            : "hover:bg-gray-100 text-gray-700"
-                                            }`}
-                                    >
-                                        {filter}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Region */}
-                        <div className="mt-6">
-                            <h2 className="text-sm font-semibold text-gray-900 mb-2">
-                                Region
-                            </h2>
-
-                            <div className="flex flex-col gap-2">
-                                {REGION_FILTERS.map((filter) => (
-                                    <button
-                                        key={filter}
-                                        onClick={() => {
-                                            setActiveRegion(activeRegion === filter ? null : filter)
-                                            setActiveCategory("All")
-                                            setSearch("")
-                                        }}
-                                        className={`text-left px-3 py-2 rounded-xl text-sm transition-colors ${activeRegion === filter
-                                            ? "bg-orange-500 text-white"
-                                            : "hover:bg-gray-100 text-gray-700"
-                                            }`}
-                                    >
-                                        {filter}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-                {/* Main */}
-                <main className="col-span-12 md:col-span-9">
-                    {/* Mobile Search */}
-                    <div className="md:hidden mb-4">
-                        <input
-                            type="text"
-                            placeholder="Search products..."
-                            value={search}
-                            onChange={(e) =>
-                                setSearch(e.target.value)
-                            }
-                            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-black"
-                        />
-                    </div>
-
-                    {/* Mobile Category Chips */}
-                    <div className="md:hidden flex overflow-x-auto gap-2 mb-4 pb-1 no-scrollbar">
-                        {CATEGORY_FILTERS.map((filter) => (
-                            <button
-                                key={filter}
-                                onClick={() =>
-                                    setActiveCategory(filter)
-                                }
-                                className={`whitespace-nowrap px-4 py-2 rounded-full text-sm border transition-colors ${activeCategory === filter
-                                    ? "bg-black text-white border-black"
-                                    : "bg-white border-gray-200 text-gray-700"
-                                    }`}
+            <main>
+                <div className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-gray-200 mb-6">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="flex items-center gap-2 overflow-x-auto py-3 no-scrollbar">
+                            <Link
+                                href="/"
+                                className="whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-black hover:text-white transition"
                             >
-                                {filter}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Mobile Region */}
-                    <div className="md:hidden flex gap-2 mb-6">
-                        {REGION_FILTERS.map((filter) => (
-                            <button
-                                key={filter}
-                                onClick={() =>
-                                    setActiveRegion(
-                                        activeRegion === filter
-                                            ? null
-                                            : filter
-                                    )
-                                }
-                                className={`px-4 py-2 rounded-full text-sm border transition-colors ${activeRegion === filter
-                                    ? "bg-orange-500 text-white border-orange-500"
-                                    : "bg-white border-gray-200 text-gray-700"
-                                    }`}
+                                Home
+                            </Link>
+                            <Link
+                                href="/products"
+                                className="whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-black hover:text-white transition"
                             >
-                                {filter}
-                            </button>
-                        ))}
-                    </div>
+                                🇺🇸 Made in USA
+                            </Link>
 
-                    {/* Result Count */}
-                    <div className="flex items-center justify-between mb-5">
-                        <div>
-                            <h1 className="text-xl font-semibold text-gray-900">
-                                Products
-                            </h1>
-
-                            <p className="text-sm text-gray-500 mt-1">
-                                {filtered.length} products found
-                            </p>
+                            <Link
+                                href="/catalog"
+                                className="whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-black hover:text-white transition"
+                            >
+                                🇻🇳 Made in Vietnam
+                            </Link>
                         </div>
                     </div>
+                </div>
 
-                    {/* Empty */}
-                    {filtered.length === 0 ? (
-                        <div className="border border-dashed border-gray-300 rounded-2xl py-20 text-center text-sm text-gray-400">
-                            No products found.
-                        </div>
-                    ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                            {filtered.map((product) => (
+                <h1 className="text-4xl font-semibold mt-12 mb-4">
+                    Made in USA
+                </h1>
+
+                {
+                    products.length > 0 && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+                            {products.map((product) => (
                                 <Link
                                     key={product.id}
                                     href={`/products/${product.id}`}
@@ -296,50 +130,54 @@ export default function Products() {
                                 </Link>
                             ))}
                         </div>
-                    )}
+                    )
+                }
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {catalogProducts.map((product) => (
-                            <Link
-                                key={product.id}
-                                href={`/catalog/${product.id}`}
-                                className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-gray-300"
-                            >
-                                {/* Image */}
-                                <div className="relative aspect-square bg-[#f5f4f0] overflow-hidden">
-                                    <Image
-                                        src={product.images[0]}
-                                        alt={product.name}
-                                        fill
-                                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                                        loading="eager"
-                                    />
+                <h1 className="text-4xl font-semibold mt-12 mb-4">
+                    Made in Vietnam
+                </h1>
 
-                                    {/* Dark overlay */}
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {catalogProducts.map((product) => (
+                        <Link
+                            key={product.id}
+                            href={`/catalog/${product.id}`}
+                            className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-gray-300"
+                        >
+                            {/* Image */}
+                            <div className="relative aspect-square bg-[#f5f4f0] overflow-hidden">
+                                <Image
+                                    src={product.images[0]}
+                                    alt={product.name}
+                                    fill
+                                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                                    loading="eager"
+                                />
+
+                                {/* Dark overlay */}
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+                            </div>
+
+                            <div className="p-4 space-y-2">
+                                <div className="flex items-start justify-between gap-3">
+                                    <h3 className="text-gray-800 text-sm font-medium leading-snug line-clamp-2 group-hover:text-orange-600 transition-colors">
+                                        {product.name}
+                                    </h3>
                                 </div>
 
-                                <div className="p-4 space-y-2">
-                                    <div className="flex items-start justify-between gap-3">
-                                        <h3 className="text-gray-800 text-sm font-medium leading-snug line-clamp-2 group-hover:text-orange-600 transition-colors">
-                                            {product.name}
-                                        </h3>
-                                    </div>
-
-                                    <div className="text-xs text-gray-500">
-                                        SKU: {product.sku}
-                                    </div>
-
-                                    <div className="text-xs text-gray-500">
-                                        {product.category}
-                                    </div>
+                                <div className="text-xs text-gray-500">
+                                    SKU: {product.sku}
                                 </div>
-                            </Link>
-                        ))}
-                    </div>
-                </main>
-            </div>
+
+                                <div className="text-xs text-gray-500">
+                                    {product.category}
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </main>
         </div>
     );
 }
