@@ -9,32 +9,6 @@ export default function Products() {
     return (
         <div className="max-w-7xl mx-auto px-4 py-6">
             <main>
-                <div className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-gray-200 mb-6">
-                    <div className="max-w-7xl mx-auto px-4">
-                        <div className="flex items-center gap-2 overflow-x-auto py-3 no-scrollbar">
-                            <Link
-                                href="/"
-                                className="whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-black hover:text-white transition"
-                            >
-                                Home
-                            </Link>
-                            <Link
-                                href="/products"
-                                className="whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-black hover:text-white transition"
-                            >
-                                🇺🇸 Made in USA
-                            </Link>
-
-                            <Link
-                                href="/catalog"
-                                className="whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-black hover:text-white transition"
-                            >
-                                🇻🇳 Made in Vietnam
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-
                 <h1 className="text-4xl font-semibold mt-12 mb-4">
                     Made in USA
                 </h1>

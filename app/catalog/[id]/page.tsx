@@ -252,15 +252,17 @@ export default function ProductPage({
                                                     <td className="px-4 py-3 font-mono text-xs text-gray-600 whitespace-nowrap">{variation.sku}</td>
                                                     <td className="px-4 py-3 text-gray-600">{variation.weight}</td>
                                                     <td className="px-4 py-3 text-right font-mono font-semibold text-[#27ae60]">
-                                                        ${variation.price.toFixed(1)}
+                                                        ${(variation.price - 1).toFixed(1)}
                                                     </td>
                                                     {entries.map(([key, s]) => (
                                                         <td key={key} className="px-4 py-3 text-right">
                                                             <span className="block font-mono font-semibold text-blue-500">
-                                                                ${s.fee.toFixed(2)}
+                                                                {
+                                                                    s.fee === 0 ? s.fee.toFixed(2) : (s.fee - 2).toFixed(2)
+                                                                }
                                                             </span>
                                                             <span className="block font-mono text-xs text-gray-400">
-                                                                Total: ${s.total.toFixed(2)}
+                                                                Total: ${(s.total - 2).toFixed(2)}
                                                             </span>
                                                         </td>
                                                     ))}
