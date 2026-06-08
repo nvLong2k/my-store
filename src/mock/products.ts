@@ -2,46 +2,6 @@ import { Product } from "../types/products";
 
 export const products: Product[] = [
     {
-        id: 1,
-        name: "1st Gen 40oz Colorful Car Cup | 304 Stainless Steel（Made in USA）",
-        type: "thermoCup",
-        price: 14.00,
-        originalPrice: 17.50,
-        discount: 20,
-        avgProductionDays: 1.5,
-        images: ["/images/87HU8L_90_1_1.jpg"],
-        isNew: true,
-        origin: "SALE",
-        exclusiveRegion: "US",
-        colors: [
-            { label: "Pink", hex: "#f4a7b9" },
-            { label: "Teal", hex: "#4dd0b8" },
-            { label: "Purple", hex: "#7c3db8" },
-            { label: "Blue", hex: "#7dd3e8" },
-        ],
-        sizes: [
-            { label: "One Size", width: "3.74inch/9.5cm", height: "9.76inch/24.8cm", capacity: "40oz" },
-        ],
-        meta: {
-            material: "Stainless steel 304",
-            weight: "540 g",
-        },
-        description: [
-            "Detailed Address: 2503 Strozier Ave South El Monte, City: South El Monte, State: CA, Post Code: 91733",
-            "Design Area: Full-surface Printing",
-            "Recommended Image Pixels: 3064×2440PX",
-            "Made of high-quality non-toxic stainless steel, odorless and harmless, safe for daily use.",
-            "Adopts double-layer vacuum insulation technology to maintain the temperature of hot and cold drinks.",
-            "Equipped with leak-proof lid to prevent liquid leakage and keep the car interior tidy.",
-            "Detachable structure design for easy cleaning and better hygiene maintenance.",
-            "Hand wash recommended.",
-        ],
-        shipping: {
-            price: "$5.78 ~ $13.44",
-            description: "Shipping to the US only"
-        },
-    },
-    {
         id: 2,
         name: "40oz Car Insulated Cup | Stainless Steel (Made in USA)",
         type: "thermoCup",

@@ -9,7 +9,7 @@ export default function Products() {
     return (
         <div className="max-w-7xl mx-auto px-4 py-6">
             <main>
-                <h1 className="text-4xl font-semibold mt-12 mb-4">
+                <h1 className="text-4xl font-semibold mt-4 mb-4">
                     Made in USA
                 </h1>
 
