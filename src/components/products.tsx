@@ -210,7 +210,7 @@ export default function Products() {
                                         <div className="flex items-center gap-2 flex-wrap mb-2">
                                             <span className="text-xl font-semibold text-orange-500 transition-transform duration-300 group-hover:scale-105">
                                                 $
-                                                {(product.price - 1).toFixed(2)}
+                                                {(product.price).toFixed(2)}
                                             </span>
 
                                             <span className="text-sm text-gray-400 line-through">
@@ -222,7 +222,7 @@ export default function Products() {
                                                 -
                                                 {(
                                                     (1 -
-                                                        (product.price - 1) /
+                                                        (product.price) /
                                                         product.originalPrice) *
                                                     100
                                                 ).toFixed(0)}
