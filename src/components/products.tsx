@@ -83,7 +83,7 @@ export default function Products() {
                                             setActiveCategory(filter)
                                             setSearch("")
                                         }}
-                                        className={`text-left px-3 py-2 rounded-xl text-sm transition-colors ${activeCategory === filter
+                                        className={`text-left px-3 py-2 rounded-xl text-sm transition-colors hover:cursor-pointer ${activeCategory === filter
                                             ? "bg-black text-white"
                                             : "hover:bg-gray-100 text-gray-700"
                                             }`}
