@@ -47,7 +47,7 @@ export default function ProductDetailPage({
 
     const discountPercent = useMemo(() => {
         return (
-            ((product.originalPrice - (product.price - 1)) /
+            ((product.originalPrice - (product.price)) /
                 product.originalPrice) *
             100
         ).toFixed(0);
@@ -141,7 +141,7 @@ export default function ProductDetailPage({
                         {/* Price */}
                         <div className="mt-6 flex items-end gap-3 flex-wrap">
                             <span className="text-4xl font-bold text-[#e0781e]">
-                                ${(product.price - 1).toFixed(2)}
+                                ${(product.price).toFixed(2)}
                             </span>
 
                             <span className="text-lg text-gray-400 line-through">
@@ -306,7 +306,7 @@ export default function ProductDetailPage({
                                             <div className="flex items-baseline gap-1.5">
                                                 {
                                                     tier?.price && (
-                                                        <span className="font-medium text-gray-800">${(tier.price - 1).toFixed(2)}</span>
+                                                        <span className="font-medium text-gray-800">${(tier.price).toFixed(2)}</span>
                                                     )
                                                 }
                                                 <span className="text-gray-400 line-through text-[12px]">
