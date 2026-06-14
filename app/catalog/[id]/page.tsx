@@ -20,11 +20,7 @@ const SHIPPING_LABELS: Record<string, { label: string; sub?: string }> = {
     shippingToCA: { label: "SHIPPING TO CA" },
 };
 
-export default function ProductPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
-}) {
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
     const product = catalogProducts.find((p) => p.id === Number(id));
     if (!product) notFound();
