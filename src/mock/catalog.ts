@@ -870,7 +870,6 @@ export const catalogProducts: CatalogProduct[] = [
       { label: "White", hex: "#ffffff" },
       { label: "Light_bue", hex: "#45a0ff" },
       { label: "Light_pink", hex: "#e890ea" },
-      { label: "Light_pink", hex: "#e47df2" },
       { label: "Sport_Grey", hex: "#6c8486" },
     ],
     variations: [
@@ -993,7 +992,6 @@ export const catalogProducts: CatalogProduct[] = [
       { label: "White", hex: "#ffffff" },
       { label: "Light_bue", hex: "#45a0ff" },
       { label: "Light_pink", hex: "#e890ea" },
-      { label: "Light_pink", hex: "#e47df2" },
       { label: "Sport_Grey", hex: "#6c8486" },
     ],
     variations: [
@@ -1115,7 +1113,6 @@ export const catalogProducts: CatalogProduct[] = [
       { label: "Sand", hex: "#d4b7a2" },
       { label: "White", hex: "#ffffff" },
       { label: "Light_pink", hex: "#e890ea" },
-      { label: "Light_pink", hex: "#e47df2" },
       { label: "Sport_Grey", hex: "#6c8486" },
       { label: "begi", hex: "#e8d0bf" },
       { label: "forest_green", hex: "#09975f" },
