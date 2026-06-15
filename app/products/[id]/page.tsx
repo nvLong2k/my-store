@@ -1,46 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { use, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { products } from "@/src/mock/products";
+import ProductInfoTabs from "@/src/components/ProductInfoTabs";
 
-const SIZE_FIELD_LABELS: Record<string, string> = {
-    capGirth: "Cap girth",
-    brimOfHat: "Brim of hat",
-    hatHeight: "Hat height",
-    width: "Width",
-    height: "Height",
-    long: "Long",
-    capacity: "Capacity",
-    diameter: "Diameter",
-    shoulderWidth: "Shoulder width",
-    length: "Length",
-    sleeveLength: "Sleeve length",
-    bust: "Bust 1 / 2",
-    recommendedHeight: "Recommended height",
-    recommendedWeight: "Recommended weight",
-    waist: "Waist 1 / 2",
-    headCircumference: "Head circumference",
-};
-
-const TABS = ["Description", "Size Guide"] as const;
-type Tab = (typeof TABS)[number];
-
-export default function ProductDetailPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
-}) {
+export default function ProductDetailPage({ params }: { params: Promise<{ id: string }>; }) {
     const { id } = use(params);
 
     const product = products.find((p) => String(p.id) === id);
 
     if (!product) notFound();
 
-    const [activeTab, setActiveTab] = useState<Tab>("Description");
     const [activeThumb, setActiveThumb] = useState<number>(0);
     const [activeColor, setActiveColor] = useState<number>(0);
     const [activeSize, setActiveSize] = useState<number>(0);
@@ -123,7 +98,7 @@ export default function ProductDetailPage({
                         <motion.h1
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight"
+                            className="text-base md:text-xl font-semibold text-gray-900 leading-tight"
                         >
                             {product.name}
                         </motion.h1>
@@ -139,7 +114,7 @@ export default function ProductDetailPage({
                         </div>
 
                         {/* Price */}
-                        <div className="mt-6 flex items-end gap-3 flex-wrap">
+                        <div className="mt-3 flex items-end gap-3 flex-wrap">
                             <span className="text-4xl font-bold text-[#e0781e]">
                                 ${(product.price).toFixed(2)}
                             </span>
@@ -178,9 +153,9 @@ export default function ProductDetailPage({
 
                         {/* Colors */}
                         {product.colors && product.colors.length > 0 && (
-                            <div className="mt-6">
+                            <div className="mt-4">
                                 <div className="flex items-center justify-between mb-3">
-                                    <p className="text-sm font-medium text-gray-800">
+                                    <p className="text-base font-bold text-gray-800">
                                         Color
                                     </p>
 
@@ -209,8 +184,8 @@ export default function ProductDetailPage({
 
                                             <span
                                                 className={`text-xs ${activeColor === i
-                                                        ? "font-semibold text-gray-900"
-                                                        : "text-gray-500"
+                                                    ? "font-semibold text-gray-900"
+                                                    : "text-gray-500"
                                                     }`}
                                             >
                                                 {c.label}
@@ -223,18 +198,11 @@ export default function ProductDetailPage({
 
                         {/* Sizes */}
                         {product.sizes && (
-                            <div className="mt-6">
+                            <div className="mt-4">
                                 <div className="flex items-center justify-between mb-3">
-                                    <p className="text-sm font-medium text-gray-800">
+                                    <p className="text-base font-bold text-gray-800">
                                         Size
                                     </p>
-
-                                    <button
-                                        onClick={() => setActiveTab("Size Guide")}
-                                        className="text-sm text-[#e0781e] hover:underline"
-                                    >
-                                        Size Guide
-                                    </button>
                                 </div>
 
                                 <div className="flex gap-2 flex-wrap">
@@ -256,7 +224,7 @@ export default function ProductDetailPage({
 
                         {/* Meta */}
                         {product.meta && (
-                            <div className="grid grid-cols-3 gap-3 mt-7">
+                            <div className="grid grid-cols-3 gap-3 mt-4">
                                 {[
                                     {
                                         label: "Material",
@@ -289,7 +257,7 @@ export default function ProductDetailPage({
 
                         {/* Bulk — no tiers */}
                         {!product.bulkPricing && (
-                            <div className="bg-white border border-gray-200 rounded-2xl p-4 mt-7">
+                            <div className="bg-white border border-gray-200 rounded-2xl p-4 mt-4">
                                 <p className="text-[12px] text-gray-500 font-medium mb-1">Bulk Price</p>
                                 <p className="line-through text-gray-600">${product.originalPrice.toFixed(2)}</p>
                                 <p className="text-gray-400 text-[12px]">1+ Pieces</p>
@@ -298,7 +266,7 @@ export default function ProductDetailPage({
 
                         {/* Bulk — with tiers */}
                         {product.bulkPricing && product.bulkPricing.length > 0 && (
-                            <div className="bg-white border border-gray-200 rounded-2xl p-4 mt-7">
+                            <div className="bg-white border border-gray-200 rounded-2xl p-4 mt-4">
                                 <p className="text-[12px] text-gray-500 font-medium mb-2">Bulk Price:</p>
                                 <div className="flex gap-4 flex-wrap">
                                     {product.bulkPricing.map((tier, i) => (
@@ -323,138 +291,16 @@ export default function ProductDetailPage({
                         )}
 
                         {/* CTA */}
-                        {/* <div className="mt-8 flex gap-3">
-                            <button className="flex-1 h-12 rounded-2xl bg-gray-900 text-white font-medium hover:opacity-90 transition">
-                                Add to Cart
-                            </button>
-
-                            <button className="h-12 px-5 rounded-2xl border border-gray-300 bg-white hover:bg-gray-50 transition">
-                                ♡
-                            </button>
-                        </div> */}
+                        <div className="mt-4">
+                            <Link href={`/products/${product.id}/design`} className="w-40 h-12 flex items-center justify-center rounded-md bg-[#ffa200] text-white font-medium hover:opacity-90 transition hover:cursor-pointer">
+                                Start Designing
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
                 {/* TABS */}
-                <div className="mt-12 bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
-
-                    {/* Tab Header */}
-                    <div className="flex border-b border-gray-200 overflow-x-auto">
-                        {TABS.map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`
-                                    relative px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors
-                                    ${activeTab === tab ? "text-[#e0781e]" : "text-gray-500 hover:text-gray-800"}
-                                `}
-                            >
-                                {tab}
-
-                                {activeTab === tab && (
-                                    <motion.div
-                                        layoutId="active-tab"
-                                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#e0781e]"
-                                    />
-                                )}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 md:p-7">
-
-                        <AnimatePresence mode="wait">
-
-                            {/* DESCRIPTION */}
-                            {activeTab === "Description" && (
-                                <motion.div
-                                    key="desc"
-                                    initial={{ opacity: 0, y: 8 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0 }}
-                                >
-                                    <ul className="space-y-4">
-                                        {product.description?.map((line, i) => (
-                                            <li
-                                                key={i}
-                                                className="pb-4 border-b border-gray-100 last:border-0 text-gray-700 leading-relaxed"
-                                            >
-                                                {line}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </motion.div>
-                            )}
-
-                            {/* SIZE GUIDE */}
-                            {activeTab === "Size Guide" && product.sizes && (
-                                <motion.div
-                                    key="size"
-                                    initial={{ opacity: 0, y: 8 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0 }}
-                                >
-                                    <div className="overflow-x-auto rounded-2xl border border-gray-200">
-                                        <table className="min-w-full text-sm">
-                                            <tbody>
-
-                                                <tr className="bg-gray-50">
-                                                    <td className="sticky left-0 z-10 bg-gray-50 border-b border-r border-gray-200 px-4 py-3 font-medium">
-                                                        Size
-                                                    </td>
-
-                                                    {product.sizes.map((s) => (
-                                                        <td
-                                                            key={s.label}
-                                                            className="border-b border-gray-200 px-4 py-3 font-medium whitespace-nowrap"
-                                                        >
-                                                            {s.label}
-                                                        </td>
-                                                    ))}
-                                                </tr>
-
-                                                {Array.from(
-                                                    new Set(
-                                                        product.sizes.flatMap((s) =>
-                                                            Object.keys(s).filter(
-                                                                (k) => k !== "label"
-                                                            )
-                                                        )
-                                                    )
-                                                ).map((field) => (
-                                                    <tr key={field}>
-                                                        <td className="sticky left-0 z-10 bg-white border-r border-b border-gray-200 px-4 py-3 text-gray-500 whitespace-nowrap">
-                                                            {SIZE_FIELD_LABELS[field] ??
-                                                                field
-                                                                    .replace(/([A-Z])/g, " $1")
-                                                                    .replace(/^./, (c) =>
-                                                                        c.toUpperCase()
-                                                                    )}
-                                                        </td>
-
-                                                        {product.sizes!.map((s) => (
-                                                            <td
-                                                                key={s.label}
-                                                                className="border-b border-gray-200 px-4 py-3 whitespace-nowrap"
-                                                            >
-                                                                {s[field] ?? "—"}
-                                                            </td>
-                                                        ))}
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <p className="text-xs text-gray-400 mt-4">
-                                        Actual product measurements may vary by up to 1 inch.
-                                    </p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                </div>
+                <ProductInfoTabs product={product} />
             </div>
         </div>
     );
