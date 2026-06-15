@@ -5,21 +5,17 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ReactNode, use, useState } from "react";
 import { products } from "@/src/mock/products";
-import { ChevronLeft, ImageIcon, Layers, Palette, ShoppingBag, Type } from "lucide-react";
+import { ChevronLeft, ChevronRight, Eraser, ImageIcon, Layers, Palette, Redo2, ShoppingBag, Type, Undo2 } from "lucide-react";
 
 type Tool = "select" | "upload" | "text" | "background" | "layer";
 
-const TOOLS: {
-    id: Tool;
-    icon: ReactNode;
-    label: string;
-}[] = [
-        { id: "upload", icon: <ShoppingBag size={20} />, label: "Product" },
-        { id: "select", icon: <ImageIcon size={20} />, label: "Gallery" },
-        { id: "text", icon: <Type size={20} />, label: "Text" },
-        { id: "background", icon: <Palette size={20} />, label: "Background" },
-        { id: "layer", icon: <Layers size={20} />, label: "Layer" },
-    ];
+const TOOLS: { id: Tool; icon: ReactNode; label: string; }[] = [
+    { id: "upload", icon: <ShoppingBag size={20} />, label: "Product" },
+    { id: "select", icon: <ImageIcon size={20} />, label: "Gallery" },
+    { id: "text", icon: <Type size={20} />, label: "Text" },
+    { id: "background", icon: <Palette size={20} />, label: "Background" },
+    { id: "layer", icon: <Layers size={20} />, label: "Layer" },
+];
 
 export default function DesignPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
@@ -28,21 +24,21 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
     if (!product) notFound();
 
     const [activeTool, setActiveTool] = useState<Tool>("upload");
-    const [activeColor, setActiveColor] = useState(0);
-    const [activeSize, setActiveSize] = useState(0);
-    const [activeThumb, setActiveThumb] = useState(0);
+    const [activeColor, setActiveColor] = useState<number>(0);
+    const [activeSize, setActiveSize] = useState<number>(0);
+    const [activeThumb, setActiveThumb] = useState<number>(0);
 
     return (
-        <div className="flex h-screen bg-gray-100 overflow-hidden">
+        <div className="flex flex-1 min-h-0 bg-gray-100 overflow-hidden h-full">
             {/* Left Sidebar */}
-            <aside className="flex h-full">
+            <aside className="flex h-[calc(100vh-66px)]">
                 {/* Icon rail */}
                 <div className="w-20 bg-white border-r border-gray-200 flex flex-col items-center">
                     {TOOLS.map((tool) => (
                         <button
                             key={tool.id}
                             onClick={() => setActiveTool(tool.id)}
-                            className={`w-20 h-20 flex flex-col items-center justify-center gap-0.75 text-xs transition-colors ${activeTool === tool.id
+                            className={`w-20 h-20 flex flex-col items-center justify-center gap-0.75 text-xs transition-colors hover:cursor-pointer ${activeTool === tool.id
                                 ? "bg-blue-100 text-[#3699ff] border-l-4 border-[#3699ff]"
                                 : "text-gray-500 hover:bg-gray-100"
                                 }`}
@@ -144,57 +140,52 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
             {/* Center Canvas */}
             <div className="flex-1 flex flex-col min-w-0">
                 {/* Top toolbar */}
-                <div className="h-12 bg-white border-b border-gray-200 flex items-center justify-between px-4 shrink-0">
+                <div className="h-12 bg-white border-b border-gray-200 flex items-center justify-center px-4 shrink-0">
                     {/* Left tools */}
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-2">
                         {[
-                            { icon: "⛶", label: "Fullscreen" },
-                            { icon: "↖", label: "Select" },
-                            { icon: "📋", label: "Copy" },
-                            { icon: "ℹ", label: "Info" },
+                            { icon: <Image src='/images/icon/full-screen.png' alt="full screen" width={16} height={16} />, label: "Fullscreen" },
+                            { icon: <Image src='/images/icon/shortcut-key.png' alt="full screen" width={14} height={14} />, label: "Shortcut Key" },
+                            { icon: <Image src='/images/icon/design-record.png' alt="full screen" width={18} height={18} />, label: "Design Record" },
+                            { icon: <Image src='/images/icon/info.png' alt="full screen" width={18} height={18} />, label: "" },
                         ].map((t) => (
                             <button
                                 key={t.label}
                                 title={t.label}
-                                className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-sm"
+                                className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-sm hover:cursor-pointer"
                             >
                                 {t.icon}
                             </button>
                         ))}
-                        <div className="w-px h-5 bg-gray-200 mx-1" />
+                        <div className="w-0.5 h-5 bg-gray-300 mx-1" />
                         {[
-                            { icon: "↩", label: "Undo" },
-                            { icon: "↪", label: "Redo" },
-                            { icon: "✏️", label: "Edit" },
+                            { icon: <Undo2 size={24} />, label: "Revoke" },
+                            { icon: <Redo2 size={24} />, label: "Recovery" },
+                            { icon: <Eraser size={24} />, label: "Clear" },
                         ].map((t) => (
                             <button
                                 key={t.label}
                                 title={t.label}
-                                className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-sm"
+                                className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-sm hover:cursor-pointer"
                             >
                                 {t.icon}
                             </button>
                         ))}
                     </div>
+                </div>
 
-                    {/* Recommended pixels */}
-                    <span className="text-[12px] text-gray-400">
-                        Recommended Pixels: 2165 * 2666
-                    </span>
+                {/* Recommended pixels */}
+                <div className="text-end text-gray-400 text-sm mt-1 mr-2">
+                    Recommended Pixels: 2165 * 2666
                 </div>
 
                 {/* Canvas area */}
-                <div className="flex-1 overflow-auto flex flex-col items-center justify-start pt-4 pb-8 px-4">
-                    {/* Warning */}
-                    <p className="text-sm text-red-500 text-center mb-3 font-medium">
-                        In order to comply with the production specifications, please ensure that the design elements are always within the red line!
-                    </p>
-
+                <div className="flex-1 overflow-auto flex flex-col items-center justify-start pb-8 px-4">
                     {/* Thumbnails + Canvas */}
                     <div className="flex gap-3 items-start">
                         {/* Face thumbnails */}
                         <div className="flex flex-col gap-2">
-                            <button className="text-sm shadow-md bg-white text-gray-500 border border-gray-200 rounded-md px-2 py-1 hover:bg-gray-50 whitespace-nowrap">
+                            <button className="text-sm shadow-md bg-white text-gray-500 border border-gray-200 rounded-md px-2 py-1 hover:bg-gray-50 whitespace-nowrap hover:cursor-pointer">
                                 Copy face
                             </button>
                             {product.images.map((img, i) => (
@@ -210,27 +201,36 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
                         </div>
 
                         {/* Main canvas */}
-                        <div className="relative rounded-sm overflow-hidden" style={{ width: 560, height: 560 }}>
-                            {/* Checkerboard toàn bộ canvas */}
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    backgroundImage: "repeating-conic-gradient(#b0b0b0 0% 25%, #fff 0% 50%)",
-                                    backgroundSize: "20px 20px",
-                                }}
-                            />
+                        <div className="flex flex-col items-center" style={{ width: 700, height: 700 }}>
+                            {/* Warning */}
+                            <p className="text-sm text-red-500 text-center mb-3 font-medium">
+                                In order to comply with the production specifications, please ensure that the design elements are always within the red line!
+                            </p>
 
-                            {/* Vùng trong viền đỏ — trắng hơn để phân biệt */}
-                            <div
-                                className="absolute inset-10"
-                                style={{
-                                    backgroundImage: "repeating-conic-gradient(#d8d8d8 0% 25%, #fff 0% 50%)",
-                                    backgroundSize: "20px 20px",
-                                }}
-                            />
+                            <div className="relative rounded-sm overflow-hidden shadow-lg w-full h-full">
+                                <div
+                                    className="absolute inset-0"
+                                    style={{
+                                        backgroundImage: `repeating-conic-gradient(#a8a8a8 0% 25%, #f0f0f0 0% 50%)`,
+                                        backgroundSize: "20px 20px",
+                                    }}
+                                />
 
-                            {/* Red boundary */}
-                            <div className="absolute inset-10 border-2 border-red-500 pointer-events-none" />
+                                <div
+                                    className="absolute inset-10"
+                                    style={{
+                                        backgroundImage: `repeating-conic-gradient(#e0e0e0 0% 25%, #ffffff 0% 50%)`,
+                                        backgroundSize: "20px 20px",
+                                    }}
+                                />
+
+                                <div className="absolute inset-10 border-[3px] border-red-500 pointer-events-none" />
+
+                                <div
+                                    className="absolute top-10 bottom-10 left-1/2 border-l-2 border-dashed border-blue-600 pointer-events-none"
+                                    style={{ transform: 'translateX(-1px)' }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,51 +238,46 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
 
             {/* Right Panel */}
             <aside className="w-72 bg-white border-l border-gray-200 flex flex-col">
-                {/* Preview header */}
-                <div className="h-12 border-b border-gray-100 flex items-center justify-between px-4 shrink-0">
-                    <button className="w-7 h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:bg-gray-50 text-sm">
-                        ‹
-                    </button>
-                    <div className="flex gap-1.5">
-                        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                            <div
-                                key={i}
-                                className={`w-1.5 h-1.5 rounded-full ${i === 0 ? "bg-blue-500" : "bg-gray-300"}`}
+                <div className="m-2 border border-gray-200 rounded-md overflow-hidden">
+                    {/* Preview image */}
+                    <div className="relative pt-4 flex justify-center">
+                        <div className="relative w-48 h-48">
+                            <Image
+                                src={product.images[0]}
+                                alt={product.name}
+                                fill
+                                className="object-contain"
                             />
-                        ))}
-                    </div>
-                    <button className="w-7 h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:bg-gray-50 text-sm">
-                        ›
-                    </button>
-                </div>
+                        </div>
 
-                {/* Preview image */}
-                <div className="flex-1 flex items-center justify-center p-4 bg-gray-50">
-                    <div className="relative w-48 h-48">
-                        <Image
-                            src={product.images[0]}
-                            alt={product.name}
-                            fill
-                            className="object-contain"
-                        />
+                        <button className="absolute left-2 top-2/3 -translate-y-1/2 w-7 h-7 rounded-full flex items-center justify-center border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                            <ChevronLeft size={20} />
+                        </button>
+
+                        <button className="absolute right-2 top-2/3 -translate-y-1/2 w-7 h-7 rounded-full flex items-center justify-center border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+
+                    {/* Preview header */}
+                    <div className="h-12 flex items-center justify-center">
+                        <div className="flex gap-1.5">
+                            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                                <div
+                                    key={i}
+                                    className={`w-2 h-2 rounded-full ${i === 0 ? "bg-blue-500" : "bg-gray-300"
+                                        }`}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
 
                 {/* Properties panel */}
                 <div className="p-4 border-t border-gray-100">
-                    <p className="text-[12px] text-gray-400 text-center">
+                    <p className="text-sm text-gray-400 text-center">
                         Please select an element to edit
                     </p>
-                </div>
-
-                {/* CTA */}
-                <div className="p-4 border-t border-gray-100 space-y-2">
-                    <button className="w-full bg-[#e0781e] hover:bg-[#c96a15] text-white rounded-lg py-2.5 text-[13px] font-medium transition-colors">
-                        Add to Cart
-                    </button>
-                    <button className="w-full border border-gray-200 text-gray-600 rounded-lg py-2.5 text-[13px] hover:bg-gray-50 transition-colors">
-                        Save Design
-                    </button>
                 </div>
             </aside>
         </div>
