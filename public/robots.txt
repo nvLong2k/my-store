@@ -1,0 +1,14 @@
+# Allow all bots to crawl and index the site
+User-agent: *
+Allow: /
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+
+# Disallow crawling of internal pages (if any)
+# Disallow: /admin
+# Disallow: /private
+
+# Sitemap location
+Sitemap: https://www.atcfulfillment.com/sitemap.xml

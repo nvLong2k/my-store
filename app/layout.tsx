@@ -16,14 +16,37 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.atcfulfillment.com"),
 
-  title: "ATC Fulfillment",
+  title: "ATC Fulfillment - Premium Products Made in USA & Vietnam",
   description:
     "Discover premium products made in the USA and Vietnam. Trusted fulfillment and sourcing solutions for businesses worldwide.",
+  keywords: [
+    "fulfillment",
+    "sourcing",
+    "USA products",
+    "Vietnam products",
+    "premium products",
+    "wholesale",
+    "supply chain",
+  ],
+  authors: [{ name: "ATC Fulfillment" }],
+  creator: "ATC Fulfillment",
+  publisher: "ATC Fulfillment",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
 
   openGraph: {
-    title: "ATC Fulfillment",
+    title: "ATC Fulfillment - Premium Products Made in USA & Vietnam",
     description:
-      "Discover premium products made in the USA and Vietnam.",
+      "Discover premium products made in the USA and Vietnam. Trusted fulfillment and sourcing solutions for businesses worldwide.",
     url: "https://www.atcfulfillment.com",
     siteName: "ATC Fulfillment",
     images: [
@@ -40,10 +63,20 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ATC Fulfillment",
+    title: "ATC Fulfillment - Premium Products Made in USA & Vietnam",
     description:
-      "Discover premium products made in the USA and Vietnam.",
+      "Discover premium products made in the USA and Vietnam. Trusted fulfillment and sourcing solutions for businesses worldwide.",
     images: ["/images/2aOboQaz7kj8UAqPWzsVxOxj7TC9XPXGuxAv2iQ4.jpg"],
+    creator: "@ATCFulfillment",
+  },
+
+  category: "Business",
+  classification: "Business",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
   },
 };
 
