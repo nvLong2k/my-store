@@ -14,11 +14,7 @@ type Tool = "select" | "upload" | "text" | "background" | "layer";
 
 const CANVAS_SIZE = 700;
 
-export default function DesignPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
-}) {
+export default function DesignPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
     const product = products.find((p) => String(p.id) === id);
     if (!product) notFound();

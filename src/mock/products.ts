@@ -493,8 +493,12 @@ export const products: Product[] = [
         exclusiveRegion: "US",
         type: "apparel",
         colors: [
-            { label: "White", hex: "white" },
-            { label: "Black", hex: "black" },
+            { label: "Pink", hex: "#f8c2cf" },
+            { label: "Light green", hex: "#adf26e" },
+            { label: "Black", hex: "#000000" },
+            { label: "White", hex: "#ffffff" },
+            { label: "Red", hex: "#ff0000" },
+            { label: "Light Grey", hex: "#dcdcdd" },
         ],
         sizes: [
             { label: "XS", shoulderWidth: "13.8in/35.0cm", length: "16.1in/41cm", sleeveLength: "5.1in/13cm", bust: "15.0in/38cm", waist: "13.0in/33cm" },
