@@ -15,7 +15,7 @@ export default function PreviewPanel({
                 <div className="relative flex justify-center items-center py-4 bg-gray-50 min-h-52">
                     <div className="relative w-44 h-44">
                         <Image
-                            src={product.images[activeThumb]}
+                            src={product.images[0]}
                             alt={product.name}
                             fill
                             className="object-contain"
@@ -39,8 +39,7 @@ export default function PreviewPanel({
                     {Array.from({ length: 9 }).map((_, i) => (
                         <div
                             key={i}
-                            className={`w-1.5 h-1.5 rounded-full transition-colors ${i === activeThumb ? "bg-blue-500" : "bg-gray-300"
-                                }`}
+                            className={`w-1.5 h-1.5 rounded-full transition-colors ${i === activeThumb ? "bg-blue-500" : "bg-gray-300"}`}
                         />
                     ))}
                 </div>

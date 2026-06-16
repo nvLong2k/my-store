@@ -39,7 +39,7 @@ export default function ProductPanel({
                     <div className="flex gap-3">
                         <div className="w-30 h-30 rounded-md overflow-hidden bg-gray-100 shrink-0 relative border border-gray-200">
                             <Image
-                                src={product.images[activeThumb]}
+                                src={product.images[0]}
                                 alt={product.name}
                                 fill
                                 className="object-cover"
