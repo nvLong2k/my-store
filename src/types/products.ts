@@ -52,4 +52,5 @@ export type Product = {
     exclusiveRegion?: string;
     bulkPricing?: BulkTier[];
     type?: string;
+    imagesDesign?: string[];
 };

@@ -40,6 +40,7 @@ export const products: Product[] = [
             price: "$5.78 ~ $13.44",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/ms3ak2Y7Fk.png"],
     },
     {
         id: 3,
@@ -84,6 +85,7 @@ export const products: Product[] = [
             price: "$5.78 ~ $13.44",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/ms3ak2Y7Fk.png"],
     },
     {
         id: 4,
@@ -124,7 +126,8 @@ export const products: Product[] = [
             "· Washing instructions: It is recommended to clean regularly, and the cup lid can be washed in a dishwasher.",
             "· Special note: Due to different measurement methods, the size data has an error of 4-8mm, which is normal. The measurement method is based on the measurement without the lid!",
             "· Note: The image display effect is for reference only. There are certain objective factors in the production process that lead to slight differences between the actual product and the effect picture, including but not limited to size, position, color difference, etc. The above are normal phenomena!"
-        ]
+        ],
+        imagesDesign: ["/images/efWDWjND2X.png"],
     },
     {
         id: 5,
@@ -163,6 +166,7 @@ export const products: Product[] = [
             price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/DFjNQytWwp.png"],
     },
     {
         id: 6,
@@ -201,6 +205,7 @@ export const products: Product[] = [
             price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/rKxZpr4bdX.png"],
     },
     {
         id: 7,
@@ -243,6 +248,7 @@ export const products: Product[] = [
             price: "$3.29~$5.81",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/NrWEGTWcGi.png"],
     },
     {
         id: 8,
@@ -285,6 +291,7 @@ export const products: Product[] = [
             price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/4cTCtwREtd.png"],
     },
     {
         id: 9,
@@ -324,6 +331,7 @@ export const products: Product[] = [
             price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/kjD5z6xXYC.png"],
     },
     {
         id: 10,
@@ -375,6 +383,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 7.00, realPrice: 9.75 },
             { minQty: 50, price: 6.63, realPrice: 8.29 },
         ],
+        imagesDesign: ["/images/TtPE8adTnE.png", "/images/TtPE8adTnE.png"],
     },
     {
         id: 11,
@@ -427,6 +436,7 @@ export const products: Product[] = [
             price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/AQw5pnE5xa.png"],
     },
     {
         id: 12,
@@ -479,6 +489,7 @@ export const products: Product[] = [
             price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/SHZfrRtrA5.png", "/images/ABsa6ApeWi.png", "/images/cwR36kCMrj.png","/images/DeejaZ5bHc.png","/images/CSAGkD3JsS.png"],
     },
     {
         id: 13,
@@ -528,6 +539,7 @@ export const products: Product[] = [
             price: "$3.33~$6.88",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/6FnrZcNpDf.png"],
     },
     {
         id: 14,
@@ -568,6 +580,7 @@ export const products: Product[] = [
             price: "$4.01~$8.20",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/fA2YTnfeBR.png"],
     },
     {
         id: 15,
@@ -614,6 +627,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 3.80, realPrice: 4.75 },
             { minQty: 50, price: 3.60, realPrice: 4.50 },
         ],
+        imagesDesign: ["/images/sAxAhGjnnC.png"],
     },
     {
         id: 16,
@@ -654,6 +668,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 1.97, realPrice: 2.47 },
             { minQty: 50, price: 1.87, realPrice: 2.34 },
         ],
+        imagesDesign: ["/images/YnAwSx362p.png", "/images/5SmSMj7rjf.png"],
     },
     {
         id: 17,
@@ -706,6 +721,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 1.31, realPrice: 1.64 },
             { minQty: 50, price: 1.24, realPrice: 1.55 },
         ],
+        imagesDesign: ["/images/TXBwknct5y.png"],
     },
     {
         id: 18,
@@ -746,6 +762,7 @@ export const products: Product[] = [
             price: "$3.74~$6.78",
             description: "Global shipping (US rates shown by default)"
         },
+        imagesDesign: ["/images/FGBTjGGSRh.png"],
     },
     {
         id: 19,
@@ -788,6 +805,7 @@ export const products: Product[] = [
             price: "$3.29~$5.81",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/jPJeDWfwbZ.png"],
     },
     {
         id: 20,
@@ -844,6 +862,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 2.30, realPrice: 2.88 },
             { minQty: 50, price: 2.13, realPrice: 2.78 },
         ],
+        imagesDesign: ["/images/kKKj3Thdmd.png"],
     },
     {
         id: 21,
@@ -890,6 +909,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, realPrice: 3.12 },
             { minQty: 50, realPrice: 2.96 },
         ],
+        imagesDesign: ["/images/7cckyaBE5A.png"],
     },
     {
         id: 22,
@@ -936,6 +956,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, realPrice: 3.12 },
             { minQty: 50, realPrice: 2.96 },
         ],
+        imagesDesign: ["/images/7fANm83mzs.png"],
     },
     {
         id: 23,
@@ -982,6 +1003,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, realPrice: 3.12 },
             { minQty: 50, realPrice: 2.96 },
         ],
+        imagesDesign: ["/images/SXwQThfs3Z.png"],
     },
     {
         id: 24,
@@ -1028,6 +1050,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, realPrice: 3.12 },
             { minQty: 50, realPrice: 2.96 },
         ],
+        imagesDesign: ["/images/YiT5mP6Gzn.png"],
     },
     {
         id: 25,
@@ -1066,6 +1089,7 @@ export const products: Product[] = [
             price: "$4.01~$8.20",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/6XwXwfbpw4.png"],
     },
     {
         id: 26,
@@ -1104,6 +1128,7 @@ export const products: Product[] = [
             price: "$3.33~$6.25",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/yb2nCEiQNh.png"],
     },
     {
         id: 27,
@@ -1146,6 +1171,7 @@ export const products: Product[] = [
             price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/yS3aZ453R6.png"],
     },
     {
         id: 28,
@@ -1188,6 +1214,7 @@ export const products: Product[] = [
             price: "$3.29~$5.81",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/jPJeDWfwbZ.png"],
     },
     {
         id: 29,
@@ -1226,6 +1253,7 @@ export const products: Product[] = [
             price: "$3.33~$6.25",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/2EDR7FYAh3.png"],
     },
     {
         id: 30,
@@ -1266,6 +1294,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 5.27, realPrice: 6.59 },
             { minQty: 50, price: 4.99, realPrice: 6.24 },
         ],
+        imagesDesign: ["/images/ZbZa2HbZFD.png", "/images/PSZ3YdBpF7.png"],
     },
     {
         id: 32,
@@ -1312,6 +1341,7 @@ export const products: Product[] = [
             { minQty: 10, maxQty: 49, price: 3.68, realPrice: 4.61 },
             { minQty: 50, price: 3.48, realPrice: 4.36 },
         ],
+        imagesDesign: ["/images/FDS6xYCNBm.png", "/images/77aarZ8rCm.png", "/images/enxEf5hrKN.png"],
     },
     {
         id: 33,
@@ -1360,6 +1390,7 @@ export const products: Product[] = [
             price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/5SmSMj7rjf.png"],
     },
     {
         id: 34,
@@ -1409,5 +1440,6 @@ export const products: Product[] = [
             price: "$3.74~$6.78",
             description: "Shipping to the US only"
         },
+        imagesDesign: ["/images/3TQ78xbt3K.png"],
     },
 ];

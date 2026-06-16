@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { products } from "../mock/products";
 
-const CANVAS_SIZE = 700;
-
 const OVERLAYS: Record<number, string> = {
     2: "https://image.printdoors.com/admin/dJfBNN5Y3N.png",
     3: "https://image.printdoors.com/admin/dJfBNN5Y3N.png",
@@ -28,11 +26,11 @@ const OVERLAYS: Record<number, string> = {
     23: "https://image.printdoors.com/admin/KXRbfxeiC3.png",
     24: "https://image.printdoors.com/admin/5mhmshYCAy.png",
     25: "https://image.printdoors.com/admin/pjjtDYfsbB.png",
-    26: "https://image.printdoors.com/admin/wJwQFiCwFh.png",
+    26: "https://image.printdoors.com/admin/NdTpda2MAG.png",
     27: "https://image.printdoors.com/admin/Aysxj8wnAd.png",
     28: "https://image.printdoors.com/admin/r4mf2fD4fG.png",
     29: "https://image.printdoors.com/admin/nP2GCNbzXK.png",
-    30: "https://image.printdoors.com/admin/nP2GCNbzXK.png",
+    30: "https://image.printdoors.com/admin/JJy68CjdcK.png",
     32: "https://image.printdoors.com/admin/nP2GCNbzXK.png",
     33: "https://image.printdoors.com/admin/pjjtDYfsbB.png",
     34: "https://image.printdoors.com/admin/pjjtDYfsbB.png",
@@ -55,17 +53,21 @@ export default function DesignCanvas({
         <div className="flex gap-4 items-start">
             {/* Face thumbnails */}
             <div className="flex flex-col gap-2 shrink-0">
-                <button className="text-xs shadow bg-white text-gray-500 border border-gray-200 rounded-md px-2 py-1.5 hover:bg-gray-50 whitespace-nowrap cursor-pointer">
-                    Copy face
-                </button>
+                {
+                    product.imagesDesign && product.imagesDesign.length > 1 && (
+                        <button className="text-xs shadow bg-white text-gray-500 border border-gray-200 rounded-md px-2 py-1.5 hover:bg-gray-50 whitespace-nowrap cursor-pointer">
+                            Copy face
+                        </button>
+                    )
+                }
 
-                {product.images.map((img: string, i: number) => (
+                {product.imagesDesign?.map((img: string, i: number) => (
                     <button
                         key={i}
                         onClick={() => setActiveThumb(i)}
-                        className={`w-20 h-20 shadow rounded-md overflow-hidden border transition-colors relative cursor-pointer ${activeThumb === i
-                                ? "border-blue-500"
-                                : "border-gray-200"
+                        className={`w-20 h-20 shadow rounded-[3px] overflow-hidden border transition-colors relative cursor-pointer ${activeThumb === i
+                            ? "border-blue-500"
+                            : "border-gray-200"
                             }`}
                     >
                         <Image
@@ -80,20 +82,14 @@ export default function DesignCanvas({
 
             {/* Canvas */}
             <div className="flex flex-col items-center gap-2 shrink-0">
-                <p className="text-sm text-red-500 text-center font-medium w-full max-w-175">
+                <p className="text-sm text-red-500 text-center font-medium w-full max-w-137.5 2xl:max-w-175">
                     In order to comply with the production specifications,
                     please ensure that the design elements are always within
                     the red line!
                 </p>
 
                 {overlayImage && (
-                    <div
-                        className="relative shadow-lg"
-                        style={{
-                            width: CANVAS_SIZE,
-                            height: CANVAS_SIZE,
-                        }}
-                    >
+                    <div className="relative shadow-lg w-137.5 h-137.5 2xl:w-175 2xl:h-175">
                         {/* Checkerboard background */}
                         <div
                             className="absolute inset-0"

@@ -12,9 +12,18 @@ import ToolRail from "@/src/components/ToolRail";
 
 type Tool = "select" | "upload" | "text" | "background" | "layer";
 
-const CANVAS_SIZE = 700;
+const BREAKPOINT_2XL = 1536; // Tailwind's 2xl breakpoint
 
-export default function DesignPage({ params }: { params: Promise<{ id: string }> }) {
+function getCanvasSize() {
+    if (typeof window === "undefined") return 700;
+    return window.innerWidth >= BREAKPOINT_2XL ? 700 : 500;
+}
+
+export default function DesignPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
     const { id } = use(params);
     const product = products.find((p) => String(p.id) === id);
     if (!product) notFound();
@@ -23,17 +32,35 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
     const [activeColor, setActiveColor] = useState<number>(0);
     const [activeSize, setActiveSize] = useState<number>(0);
     const [activeThumb, setActiveThumb] = useState<number>(0);
+    const [canvasSize, setCanvasSize] = useState<number>(getCanvasSize);
 
     const canvasElRef = useRef<HTMLCanvasElement>(null);
     const fabricRef = useRef<fabric.Canvas | null>(null);
 
-    // Init Fabric
+    // Handle responsive canvas size
     useEffect(() => {
-        if (!canvasElRef.current || fabricRef.current) return;
+        const handleResize = () => {
+            const newSize = getCanvasSize();
+            setCanvasSize((prev) => (prev !== newSize ? newSize : prev));
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // Init / reinit Fabric when canvasSize changes
+    useEffect(() => {
+        if (!canvasElRef.current) return;
+
+        // Dispose existing instance before creating a new one
+        if (fabricRef.current) {
+            fabricRef.current.dispose();
+            fabricRef.current = null;
+        }
 
         const fc = new fabric.Canvas(canvasElRef.current, {
-            width: CANVAS_SIZE,
-            height: CANVAS_SIZE,
+            width: canvasSize,
+            height: canvasSize,
             backgroundColor: "transparent",
             preserveObjectStacking: true,
         });
@@ -43,7 +70,7 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
             fc.dispose();
             fabricRef.current = null;
         };
-    }, []);
+    }, [canvasSize]);
 
     const handleUndo = () => {
         const fc = fabricRef.current;
@@ -55,7 +82,7 @@ export default function DesignPage({ params }: { params: Promise<{ id: string }>
         }
     };
 
-    const handleRedo = () => { /* TODO */ };
+    const handleRedo = () => {/* TODO */ };
     const handleClear = () => {
         fabricRef.current?.clear();
         fabricRef.current?.renderAll();
