@@ -8,14 +8,12 @@ import ProductInfoTabs from "./ProductInfoTabs";
 
 export default function ProductPanel({
     product,
-    activeThumb,
     activeSize,
     setActiveSize,
     activeColor,
     setActiveColor,
 }: {
     product: ReturnType<typeof products.find> & object;
-    activeThumb: number;
     activeSize: number;
     setActiveSize: (i: number) => void;
     activeColor: number;
@@ -45,7 +43,7 @@ export default function ProductPanel({
                                 className="object-cover"
                             />
                         </div>
-                        <div className="min-w-0 flex flex-col gap-0.5">
+                        <div className="min-w-0 flex flex-col gap-1">
                             <p className="text-sm text-gray-800 font-medium line-clamp-1 leading-snug">
                                 {product.name.length > 50
                                     ? product.name.slice(0, 50) + "…"
@@ -128,7 +126,7 @@ export default function ProductPanel({
                             <div className="flex gap-3 mt-3 w-full -mb-6">
                                 <div className="w-20 h-20 rounded-md overflow-hidden bg-gray-100 shrink-0 relative border border-gray-200">
                                     <Image
-                                        src={product.images[activeThumb]}
+                                        src={product.images[0]}
                                         alt={product.name}
                                         fill
                                         className="object-cover"

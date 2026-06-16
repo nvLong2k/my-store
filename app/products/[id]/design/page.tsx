@@ -9,6 +9,7 @@ import DesignCanvas from "@/src/components/DesignCanvas";
 import TopToolbar from "@/src/components/TopToolbar";
 import ProductPanel from "@/src/components/ProductPanel";
 import ToolRail from "@/src/components/ToolRail";
+import ColorPicker from "@/src/components/design/Colorpicker";
 
 type Tool = "select" | "upload" | "text" | "background" | "layer";
 
@@ -93,14 +94,30 @@ export default function DesignPage({
             {/* Left sidebar */}
             <aside className="flex h-full shrink-0">
                 <ToolRail activeTool={activeTool} onSelect={setActiveTool} />
-                <ProductPanel
-                    product={product}
-                    activeThumb={activeThumb}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                    activeColor={activeColor}
-                    setActiveColor={setActiveColor}
-                />
+
+                {
+                    (activeTool === "upload" || activeTool === "layer" || activeTool === "select") &&
+                    <ProductPanel
+                        product={product}
+                        activeSize={activeSize}
+                        setActiveSize={setActiveSize}
+                        activeColor={activeColor}
+                        setActiveColor={setActiveColor}
+                    />
+                }
+
+                {
+                    activeTool === "background" &&
+                    <ColorPicker />
+                }
+
+                {
+                    activeTool === "text" &&
+                    <div className="w-80 bg-white border-r border-gray-200 overflow-y-auto flex flex-col items-center">
+                        <button className="bg-[#f6f7f9] mt-4 py-1 hover:cursor-pointer rounded-sm w-72">+ Add text</button>
+                    </div>
+                }
+
             </aside>
 
             {/* Center */}
