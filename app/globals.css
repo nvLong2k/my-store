@@ -134,10 +134,17 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
+}
+
+.react-colorful__hue {
+  margin-top: 10px;
+  border-radius: 0px !important;
 }
