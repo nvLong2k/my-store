@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { products } from "@/src/mock/products";
-import Product from "@/src/components/Product";
+import { products } from "@/mock/products";
+import Product from "@/components/Product";
 
 const CATEGORY_FILTERS = [
     "All",

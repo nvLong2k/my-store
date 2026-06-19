@@ -1,4 +1,4 @@
-import { CatalogProduct } from "@/src/types/catalog";
+import { CatalogProduct } from "@/types/catalog";
 
 export default function SidebarMeta({ product }: { product: CatalogProduct }) {
     return (

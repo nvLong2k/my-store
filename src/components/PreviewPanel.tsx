@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { products } from "@/src/mock/products";
+import { products } from "@/mock/products";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PreviewPanel({

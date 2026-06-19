@@ -5,13 +5,13 @@ import { notFound } from "next/navigation";
 import { use, useMemo } from "react";
 import { motion } from "framer-motion";
 
-import { products } from "@/src/mock/products";
-import ProductInfoTabs from "@/src/components/ProductInfoTabs";
-import ImageGallery from "@/src/components/ImageGallery";
-import ColorPicker from "@/src/components/ColorPicker";
-import SizePicker from "@/src/components/SizePicker";
-import MetaGrid from "@/src/components/MetaGrid";
-import BulkPricing from "@/src/components/BulkPricing";
+import { products } from "@/mock/products";
+import ProductInfoTabs from "@/components/ProductInfoTabs";
+import ImageGallery from "@/components/ImageGallery";
+import ColorPicker from "@/components/ColorPicker";
+import SizePicker from "@/components/SizePicker";
+import MetaGrid from "@/components/MetaGrid";
+import BulkPricing from "@/components/BulkPricing";
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);

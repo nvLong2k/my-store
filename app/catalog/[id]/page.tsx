@@ -4,16 +4,16 @@ import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
-import { catalogProducts } from "@/src/mock/catalog";
+import { catalogProducts } from "@/mock/catalog";
 import { notFound } from "next/navigation";
 import { use, useState } from "react";
-import VariationsTable from "@/src/components/VariationsTable";
-import DescriptionSection from "@/src/components/DescriptionSection";
-import SidebarHeroImage from "@/src/components/SidebarHeroImage";
-import ColorPicker from "@/src/components/catalog/ColorPicker";
-import SizePicker from "@/src/components/catalog/SizePicker";
-import ImageGrid from "@/src/components/catalog/ImageGrid";
-import SidebarMeta from "@/src/components/catalog/SidebarMeta";
+import VariationsTable from "@/components/VariationsTable";
+import DescriptionSection from "@/components/DescriptionSection";
+import SidebarHeroImage from "@/components/SidebarHeroImage";
+import ColorPicker from "@/components/catalog/ColorPicker";
+import SizePicker from "@/components/catalog/SizePicker";
+import ImageGrid from "@/components/catalog/ImageGrid";
+import SidebarMeta from "@/components/catalog/SidebarMeta";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 

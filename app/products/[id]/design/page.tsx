@@ -2,14 +2,14 @@
 
 import { notFound } from "next/navigation";
 import { use, useEffect, useRef, useState } from "react";
-import { products } from "@/src/mock/products";
+import { products } from "@/mock/products";
 import * as fabric from "fabric";
-import PreviewPanel from "@/src/components/PreviewPanel";
-import DesignCanvas from "@/src/components/DesignCanvas";
-import TopToolbar from "@/src/components/TopToolbar";
-import ProductPanel from "@/src/components/ProductPanel";
-import ToolRail from "@/src/components/ToolRail";
-import ColorPicker from "@/src/components/design/Colorpicker";
+import PreviewPanel from "@/components/PreviewPanel";
+import DesignCanvas from "@/components/DesignCanvas";
+import TopToolbar from "@/components/TopToolbar";
+import ProductPanel from "@/components/ProductPanel";
+import ToolRail from "@/components/ToolRail";
+import ColorPicker from "@/components/design/Colorpicker";
 
 type Tool = "select" | "upload" | "text" | "background" | "layer";
 

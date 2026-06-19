@@ -1,12 +1,6 @@
 import Image from "next/image";
 
-export default function SidebarHeroImage({
-    src,
-    name,
-}: {
-    src?: string;
-    name: string;
-}) {
+export default function SidebarHeroImage({ src, name, }: { src?: string; name: string }) {
     return (
         <div className="rounded-xl overflow-hidden bg-gray-100 aspect-square">
             {src ? (

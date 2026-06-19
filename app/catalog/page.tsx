@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { catalogProducts } from "@/src/mock/catalog";
-import Catalog from "@/src/components/Catalog";
+import { catalogProducts } from "@/mock/catalog";
+import Catalog from "@/components/Catalog";
 
 export default function Page() {
     const [search, setSearch] = useState<string>("");

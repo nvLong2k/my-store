@@ -1,5 +1,5 @@
+import { products } from '@/mock/products';
 import { MetadataRoute } from 'next';
-import { products } from '@/src/mock/products';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.atcfulfillment.com';

@@ -1,7 +1,7 @@
-import { products } from "@/src/mock/products";
-import { catalogProducts } from "@/src/mock/catalog";
-import Product from "@/src/components/Product";
-import Catalog from "@/src/components/Catalog";
+import { products } from "@/mock/products";
+import { catalogProducts } from "@/mock/catalog";
+import Product from "@/components/Product";
+import Catalog from "@/components/Catalog";
 
 export default function Home() {
   return (
