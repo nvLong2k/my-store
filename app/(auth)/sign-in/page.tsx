@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import { useState } from "react";
-import { authService } from "@/services/auth";
 import { signInSchema, SignInFormValues } from "@/schemas/auth";
 import { GoogleIcon } from "@/components/GoogleIcon";
+import { useSignIn } from "@/hooks/useAuth";
+import { ApiError } from "@/lib/axios";
 
 export default function SignInPage() {
   const router = useRouter();
-  const [serverError, setServerError] = useState("");
+  const signInMutation = useSignIn();
 
   const formik = useFormik<SignInFormValues>({
     initialValues: {
@@ -19,17 +19,13 @@ export default function SignInPage() {
       password: "",
     },
     validationSchema: toFormikValidationSchema(signInSchema),
-    onSubmit: async (values, { setSubmitting }) => {
-      setServerError("");
-      try {
-        const res = await authService.signIn(values);
-        localStorage.setItem("accessToken", res.accessToken);
-        router.push("/");
-      } catch (err: any) {
-        setServerError(err.response?.data?.message || "Sign in failed");
-      } finally {
-        setSubmitting(false);
-      }
+    onSubmit: (values) => {
+      signInMutation.mutate(values, {
+        onSuccess: (res) => {
+          localStorage.setItem("accessToken", res.accessToken);
+          router.push("/");
+        },
+      });
     },
   });
 
@@ -101,16 +97,18 @@ export default function SignInPage() {
             )}
           </div>
 
-          {serverError && (
-            <p className="text-red-500 text-sm text-center">{serverError}</p>
+          {signInMutation.isError && (
+            <p className="text-red-500 text-sm text-center">
+              {(signInMutation.error as ApiError)?.response?.data?.message || "Sign in failed"}
+            </p>
           )}
 
           <button
             type="submit"
-            disabled={formik.isSubmitting}
+            disabled={signInMutation.isPending}
             className="w-full bg-[#e0781e] hover:bg-[#c96a15] disabled:opacity-60 text-white font-medium rounded-lg py-2.5 text-sm transition-colors"
           >
-            {formik.isSubmitting ? "Signing in..." : "Sign in"}
+            {signInMutation.isPending ? "Signing in..." : "Sign in"}
           </button>
         </form>
 

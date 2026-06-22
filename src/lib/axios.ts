@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
   },
@@ -52,5 +52,8 @@ export const api = {
   delete: <T = unknown>(url: string, config?: AxiosRequestConfig) =>
     axiosInstance.delete<T>(url, config).then((res: AxiosResponse<T>) => res.data),
 };
+
+// ── Error type ──
+export type ApiError = AxiosError<{ message: string }>;
 
 export default axiosInstance;

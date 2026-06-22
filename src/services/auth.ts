@@ -19,8 +19,8 @@ export type AuthResponse = {
 };
 
 export const authService = {
-  signIn: (data: SignInPayload) => api.post<AuthResponse>("/auth/sign-in", data),
-  signUp: (data: SignUpPayload) => api.post<AuthResponse>("/auth/sign-up", data),
+  signIn: (data: SignInPayload) => api.post<AuthResponse>("/api/auth/sign-in", data),
+  signUp: (data: SignUpPayload) => api.post<AuthResponse>("/api/auth/sign-up", data),
   me: () => api.get<AuthResponse["user"]>("/auth/me"),
   logout: () => api.post<void>("/auth/logout"),
 };

@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import { useState } from "react";
-import { authService } from "@/services/auth";
 import { signUpSchema, SignUpFormValues } from "@/schemas/auth";
 import { GoogleIcon } from "@/components/GoogleIcon";
+import { useSignUp } from "@/hooks/useAuth";
+import { ApiError } from "@/lib/axios";
 
 export default function SignUpPage() {
   const router = useRouter();
-  const [serverError, setServerError] = useState("");
+  const signUpMutation = useSignUp();
 
   const formik = useFormik<SignUpFormValues>({
     initialValues: {
@@ -19,17 +19,13 @@ export default function SignUpPage() {
       password: "",
     },
     validationSchema: toFormikValidationSchema(signUpSchema),
-    onSubmit: async (values, { setSubmitting }) => {
-      setServerError("");
-      try {
-        const res = await authService.signUp(values);
-        localStorage.setItem("accessToken", res.accessToken);
-        router.push("/");
-      } catch (err: any) {
-        setServerError(err.response?.data?.message || "Sign up failed");
-      } finally {
-        setSubmitting(false);
-      }
+    onSubmit: (values) => {
+      signUpMutation.mutate(values, {
+        onSuccess: (res) => {
+          localStorage.setItem("accessToken", res.accessToken);
+          router.push("/");
+        },
+      });
     },
   });
 
@@ -96,16 +92,18 @@ export default function SignUpPage() {
             )}
           </div>
 
-          {serverError && (
-            <p className="text-red-500 text-sm text-center">{serverError}</p>
+          {signUpMutation.isError && (
+            <p className="text-red-500 text-sm text-center">
+              {(signUpMutation.error as ApiError)?.response?.data?.message || "Sign up failed"}
+            </p>
           )}
 
           <button
             type="submit"
-            disabled={formik.isSubmitting}
+            disabled={signUpMutation.isPending}
             className="w-full bg-[#e0781e] hover:bg-[#c96a15] disabled:opacity-60 text-white font-medium rounded-lg py-2.5 text-sm transition-colors"
           >
-            {formik.isSubmitting ? "Creating account..." : "Create account"}
+            {signUpMutation.isPending ? "Creating account..." : "Create account"}
           </button>
         </form>
 
