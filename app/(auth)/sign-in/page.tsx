@@ -8,10 +8,14 @@ import { signInSchema, SignInFormValues } from "@/schemas/auth";
 import { GoogleIcon } from "@/components/GoogleIcon";
 import { useSignIn } from "@/hooks/useAuth";
 import { ApiError } from "@/lib/axios";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
   const signInMutation = useSignIn();
+
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const formik = useFormik<SignInFormValues>({
     initialValues: {
@@ -61,11 +65,10 @@ export default function SignInPage() {
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              className={`w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-1 ${
-                formik.touched.email && formik.errors.email
+              className={`w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-1 ${formik.touched.email && formik.errors.email
                   ? "border-red-400 focus:border-red-400 focus:ring-red-400"
                   : "border-gray-300 focus:border-gray-500 focus:ring-gray-500"
-              }`}
+                }`}
             />
             {formik.touched.email && formik.errors.email && (
               <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
@@ -79,19 +82,32 @@ export default function SignInPage() {
                 Forgot password?
               </Link>
             </div>
-            <input
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-1 ${
-                formik.touched.password && formik.errors.password
-                  ? "border-red-400 focus:border-red-400 focus:ring-red-400"
-                  : "border-gray-300 focus:border-gray-500 focus:ring-gray-500"
-              }`}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="••••••••"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                className={`w-full border rounded-lg px-3 py-2.5 pr-10 text-sm outline-none focus:ring-1 ${formik.touched.password && formik.errors.password
+                    ? "border-red-400 focus:border-red-400 focus:ring-red-400"
+                    : "border-gray-300 focus:border-gray-500 focus:ring-gray-500"
+                  }`}
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? (
+                  <EyeOff className="hover:cursor-pointer" size={18} />
+                ) : (
+                  <Eye className="hover:cursor-pointer" size={18} />
+                )}
+              </button>
+            </div>
             {formik.touched.password && formik.errors.password && (
               <p className="text-red-500 text-xs mt-1">{formik.errors.password}</p>
             )}
@@ -106,7 +122,7 @@ export default function SignInPage() {
           <button
             type="submit"
             disabled={signInMutation.isPending}
-            className="w-full bg-[#e0781e] hover:bg-[#c96a15] disabled:opacity-60 text-white font-medium rounded-lg py-2.5 text-sm transition-colors"
+            className="w-full hover:cursor-pointer bg-[#e0781e] hover:bg-[#c96a15] disabled:opacity-60 text-white font-medium rounded-lg py-2.5 text-sm transition-colors"
           >
             {signInMutation.isPending ? "Signing in..." : "Sign in"}
           </button>
